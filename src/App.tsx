@@ -22,7 +22,8 @@ import Logo from "./assets/logo.svg?react";
  *
  * You can also use hosted image URLs instead of local files.
  */
-
+const withBase = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
 
 const PRODUCTS_CONTENT: ProductItem[]  = [
   {
@@ -56,21 +57,21 @@ const PRODUCTS_CONTENT: ProductItem[]  = [
         title: "Operations overview",
         description:
           "A clean dashboard snapshot for showcasing the core product experience and high-level visibility.",
-        src: "/screenshots/product-1/overview.png",
+        src: withBase("screenshots/product-1/overview.png"),
         alt: "Eelvisiidi screenshot",
       },
       {
         title: "Task flow",
         description:
           "Highlight how users move through the main workflow with speed, structure, and less manual effort.",
-        src: "/screenshots/product-1/task-flow.png",
+        src: withBase("screenshots/product-1/task-flow.png"),
         alt: "Product One task flow screenshot",
       },
       {
         title: "Insights panel",
         description:
           "Use this view to present key metrics or decision-support functionality in a focused way.",
-        src: "/screenshots/product-1/insights.png",
+        src: withBase("screenshots/product-1/insights.png"),
         alt: "Product One insights panel screenshot",
       },
     ],
@@ -106,21 +107,21 @@ const PRODUCTS_CONTENT: ProductItem[]  = [
         title: "Live overview",
         description:
           "Present a high-level command center view for daily monitoring, trends, and quick decisions.",
-        src: "/screenshots/product-2/live-overview.png",
+        src: withBase("screenshots/product-2/live-overview.png"),
         alt: "Product Two live overview screenshot",
       },
       {
         title: "Detailed module",
         description:
           "Open a focused screenshot that explains one important product function in context.",
-        src: "/screenshots/product-2/detailed-module.png",
+        src: withBase("screenshots/product-2/detailed-module.png"),
         alt: "Product Two detailed module screenshot",
       },
       {
         title: "Reporting view",
         description:
           "Show how results, summaries, or trends are made easy to understand for busy teams.",
-        src: "/screenshots/product-2/reporting-view.png",
+        src: withBase("screenshots/product-2/reporting-view.png"),
         alt: "Product Two reporting view screenshot",
       },
     ],
@@ -156,21 +157,21 @@ const PRODUCTS_CONTENT: ProductItem[]  = [
         title: "User journey",
         description:
           "Show the core service path or interaction flow in a calm, elegant way.",
-        src: "/screenshots/product-3/user-journey.png",
+        src: withBase("screenshots/product-3/user-journey.png"),
         alt: "Product Three user journey screenshot",
       },
       {
         title: "Smart interaction",
         description:
           "Use this slot to explain an experience-enhancing product function with a more detailed screen.",
-        src: "/screenshots/product-3/smart-interaction.png",
+        src: withBase("screenshots/product-3/smart-interaction.png"),
         alt: "Product Three smart interaction screenshot",
       },
       {
         title: "Management view",
         description:
           "Present the operational side of the platform with a clear supporting visual.",
-        src: "/screenshots/product-3/management-view.png",
+        src: withBase("screenshots/product-3/management-view.png"),
         alt: "Product Three management view screenshot",
       },
     ],
