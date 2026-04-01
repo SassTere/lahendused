@@ -54,21 +54,21 @@ const PRODUCTS_CONTENT: ProductItem[]  = [
     ],
     screenshots: [
       {
-        title: "Operations overview",
+        title: "Avaleht",
         description:
           "A clean dashboard snapshot for showcasing the core product experience and high-level visibility.",
         src: withBase("screenshots/product-1/overview.png"),
         alt: "Eelvisiidi screenshot",
       },
       {
-        title: "Task flow",
+        title: "Sümptomite valik",
         description:
           "Highlight how users move through the main workflow with speed, structure, and less manual effort.",
         src: withBase("screenshots/product-1/task-flow.png"),
         alt: "Product One task flow screenshot",
       },
       {
-        title: "Insights panel",
+        title: "Triaaž",
         description:
           "Use this view to present key metrics or decision-support functionality in a focused way.",
         src: withBase("screenshots/product-1/insights.png"),
