@@ -4,9 +4,13 @@ import {
   X,
   ArrowRight,
   Menu,
+  Heart,
+  Users,
+  Layers,
+  Globe,
 } from "lucide-react";
 
-import Logo from "./assets/logo.svg?react";
+// Logo imported from public folder via withBase()
 
 /**
  * CONTENT SETUP
@@ -221,31 +225,19 @@ const COMPANY_INTRO = {
   items: [
     {
       text: "Meie eesmärk on pakkuda kvaliteetset, kättesaadavat ja jätkusuutlikku arstiabi, toetades samal ajal tervishoiutöötajate tööd ning parandades patsientide kogemust. Selle saavutamiseks arendame ja rakendame lahendusi, mis suunavad patsiendid õigel ajal õigesse teenusesse, optimeerivad töövooge ning võimaldavad järjepidevat kvaliteedi mõõtmist ja parendamist.",
-      image: {
-        src: withBase("company/intro-paragraph-1.svg"),
-        alt: "Idona eesmärkide ja teenuse kvaliteedi visuaal",
-      },
+      icon: "Heart",
     },
     {
       text: "Oleme partneriks Sotsiaalministeeriumile, Tervisekassale, Terviseametile ja erialaorganisatsioonidele, et leida ja katsetada lahendusi, mis toimivad üle Eesti. Meie roll on olla julge testija ning töötada koostöös partneritega välja mudelid, mis on rakendatavad kogu tervishoiusüsteemis.",
-      image: {
-        src: withBase("company/intro-paragraph-2.svg"),
-        alt: "Idona partnerlus kogu Eesti tervishoiuvõrgus",
-      },
+      icon: "Users",
     },
     {
       text: "Terviseagentuur tegutseb ühtse organisatsioonina, sõltumata keskuse asukohast ja suurusest, kus kliiniline töö, digitaalsed tööriistad ja juhtimissüsteemid on omavahel integreeritud. See loob eeldused tõhusaks meeskonnatööks, paremateks ravitulemusteks ning teenuse skaleeritavuseks erinevates piirkondades. Samuti võimaldab see kiiret reageerimist piirkondlikele vajadustele ja tervishoiukriisidele.",
-      image: {
-        src: withBase("company/intro-paragraph-3.svg"),
-        alt: "Idona ühtse organisatsiooni ja koostöömudeli illustratsioon",
-      },
+      icon: "Layers",
     },
     {
       text: "Meil on võimekus lahendusi kiiresti juurutada ja katsetada kaheksas keskuses üle Eesti, hõlmates ligikaudu 25 000 patsienti. See annab meile reaalsel kasutusel põhineva teadmise, millele tuginedes teha sisulisi ja mõjusaid ettepanekuid kogu tervishoiusüsteemi arendamiseks.",
-      image: {
-        src: withBase("company/intro-paragraph-4.svg"),
-        alt: "Idona keskuste võimekuse ja skaleeritavuse illustratsioon",
-      },
+      icon: "Globe",
     },
   ],
 } as const;
@@ -396,18 +388,12 @@ export default function SaaSOnePager() {
   }, [activeGallery, mobileMenuOpen]);
 
   return (
-    <main className="min-h-screen overflow-hidden bg-white text-[#17322d]" style={typography.body}>
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute inset-x-0 top-0 h-[540px] bg-[radial-gradient(circle_at_top_left,rgba(114,185,186,0.16),transparent_30%),radial-gradient(circle_at_top_right,rgba(102,173,228,0.14),transparent_34%),linear-gradient(180deg,rgba(235,209,152,0.16)_0%,rgba(79,136,154,0.07)_34%,rgba(255,255,255,1)_78%)]" />
-        <div className="absolute inset-x-0 top-[76px] h-[1px] bg-[linear-gradient(90deg,rgba(53,103,121,0.08),rgba(114,185,186,0.14),rgba(102,173,228,0.12),rgba(235,209,152,0.16))]" />
-      </div>
-
-      <div className="relative mx-auto max-w-[1440px] px-4 pb-14 pt-3 sm:px-6 md:px-8 lg:px-10">
-        <header className="border-y border-[rgba(23,50,45,0.08)] bg-white/95 backdrop-blur">
+    <main className="min-h-screen bg-white text-[#17322d]" style={typography.body}>
+      <header className="sticky top-0 z-50 border-y border-[rgba(23,50,45,0.08)] bg-white/95 backdrop-blur">
           <div className="mx-auto flex max-w-[1360px] items-center justify-between gap-4 px-4 py-4 sm:px-5 md:px-6">
             <div className="flex items-center gap-3">
               <div className="flex items-center">
-                  <Logo className="h-8 w-auto text-[#17322d]" />
+                  <img src={withBase("Idona_Lahendsued_Logo.svg")} alt="Idona logo" className="h-8 w-auto" />
                 </div>
             </div>
 
@@ -423,6 +409,9 @@ export default function SaaSOnePager() {
               </a>
               <a href="#product-3" className="transition hover:opacity-65">
                 Patsienditeekond
+              </a>
+              <a href="#meist" className="transition hover:opacity-65">
+                Meist
               </a>
             </nav>
 
@@ -446,8 +435,14 @@ export default function SaaSOnePager() {
           </div>
         </header>
 
-        <section className="relative px-1 pt-10 sm:pt-14 lg:pt-16">
-          <div className="mx-auto max-w-[1320px] flex flex-col lg:grid lg:grid-cols-2 lg:items-center lg:gap-12 xl:gap-16">
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute inset-x-0 top-0 h-[540px] bg-[radial-gradient(circle_at_top_left,rgba(114,185,186,0.16),transparent_30%),radial-gradient(circle_at_top_right,rgba(102,173,228,0.14),transparent_34%),linear-gradient(180deg,rgba(235,209,152,0.16)_0%,rgba(79,136,154,0.07)_34%,rgba(255,255,255,1)_78%)]" />
+          <div className="absolute inset-x-0 top-[76px] h-[1px] bg-[linear-gradient(90deg,rgba(53,103,121,0.08),rgba(114,185,186,0.14),rgba(102,173,228,0.12),rgba(235,209,152,0.16))]" />
+        </div>
+
+        <div className="relative mx-auto max-w-[1440px] px-4 pb-14 pt-3 sm:px-6 md:px-8 lg:px-10">
+          <section className="relative px-1 pt-10 sm:pt-14 lg:pt-16">
+            <div className="mx-auto max-w-[1320px] flex flex-col lg:grid lg:grid-cols-2 lg:items-center lg:gap-12 xl:gap-16">
             <div>
               <div
                 className="inline-flex bg-[#c2dce3] px-3 py-1 text-[11px] font-medium uppercase tracking-[0.1em] text-[#17322d]"
@@ -499,7 +494,7 @@ export default function SaaSOnePager() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.55, ease: "easeOut" }}
-                className="grid gap-8 border-b border-[rgba(23,50,45,0.08)] py-8 sm:gap-10 sm:py-10 lg:grid-cols-[0.92fr_1.08fr] lg:py-12"
+                className="scroll-mt-24 grid gap-8 border-b border-[rgba(23,50,45,0.08)] py-8 sm:scroll-mt-28 sm:gap-10 sm:py-10 lg:scroll-mt-32 lg:grid-cols-[0.92fr_1.08fr] lg:py-12"
               >
                 <div className="pr-0 lg:pr-10">
                   <div className="mb-4 flex items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-[#53706a] sm:text-[12px]">
@@ -584,11 +579,12 @@ export default function SaaSOnePager() {
         </section>
 
         <motion.section
+          id="meist"
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.55, ease: "easeOut" }}
-          className="relative left-1/2 right-1/2 mt-12 w-screen -translate-x-1/2 overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(114,185,186,0.14),transparent_34%),radial-gradient(circle_at_top_right,rgba(102,173,228,0.12),transparent_36%),linear-gradient(180deg,rgba(235,209,152,0.14)_0%,rgba(79,136,154,0.08)_34%,rgba(247,251,251,0.92)_100%)] py-8 sm:mt-16 sm:py-10 lg:py-12"
+          className="relative left-1/2 right-1/2 mt-12 w-screen -translate-x-1/2 scroll-mt-24 overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(114,185,186,0.14),transparent_34%),radial-gradient(circle_at_top_right,rgba(102,173,228,0.12),transparent_36%),linear-gradient(180deg,rgba(235,209,152,0.14)_0%,rgba(79,136,154,0.08)_34%,rgba(247,251,251,0.92)_100%)] py-8 sm:mt-16 sm:scroll-mt-28 sm:py-10 lg:scroll-mt-32 lg:py-12"
         >
           <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-[linear-gradient(180deg,rgba(255,255,255,0.52)_0%,rgba(255,255,255,0)_100%)]" />
           <div className="relative mx-auto max-w-[1360px] px-4 sm:px-6 lg:px-8">
@@ -600,8 +596,14 @@ export default function SaaSOnePager() {
             </h2>
 
             <div className="mt-7 space-y-5 sm:mt-9 sm:space-y-6">
-              {COMPANY_INTRO.items.map((item, index) => {
+            {COMPANY_INTRO.items.map((item, index) => {
               const imageFirst = index % 2 === 1;
+              const iconMap: Record<string, React.ReactNode> = {
+                Heart: <Heart className="h-12 w-12 text-[#4a8a7f]" />,
+                Users: <Users className="h-12 w-12 text-[#4a8a7f]" />,
+                Layers: <Layers className="h-12 w-12 text-[#4a8a7f]" />,
+                Globe: <Globe className="h-12 w-12 text-[#4a8a7f]" />,
+              };
 
               return (
                 <article
@@ -615,14 +617,9 @@ export default function SaaSOnePager() {
                   </div>
 
                   <div className={imageFirst ? "order-first lg:order-1" : "order-first lg:order-none"}>
-                    <div className="overflow-hidden border border-[rgba(23,50,45,0.16)] bg-white shadow-[0_18px_36px_rgba(23,50,45,0.12)]">
-                      <div className="bg-[linear-gradient(135deg,rgba(79,136,154,0.08)_0%,rgba(114,185,186,0.10)_38%,rgba(102,173,228,0.09)_72%,rgba(235,209,152,0.14)_100%)] p-2.5 sm:p-3">
-                        <div className="overflow-hidden border border-[rgba(23,50,45,0.14)] bg-white">
-                          <ScreenshotFrame
-                            item={item.image}
-                            className="h-[220px] w-full sm:h-[300px]"
-                          />
-                        </div>
+                    <div className="flex items-center justify-center">
+                      <div className="inline-flex items-center justify-center h-20 w-20 rounded-lg bg-[linear-gradient(135deg,rgba(79,136,154,0.08)_0%,rgba(114,185,186,0.10)_38%,rgba(102,173,228,0.09)_72%,rgba(235,209,152,0.14)_100%)] border border-[rgba(23,50,45,0.12)]">
+                        {iconMap[item.icon as keyof typeof iconMap]}
                       </div>
                     </div>
                   </div>
@@ -681,6 +678,14 @@ export default function SaaSOnePager() {
                 style={typography.display}
               >
                 Patsienditeekond
+              </a>
+              <a
+                href="#meist"
+                onClick={() => setMobileMenuOpen(false)}
+                className="border-b border-[rgba(23,50,45,0.08)] py-4 text-[28px] tracking-[-0.065em] text-[#17322d]"
+                style={typography.display}
+              >
+                Meist
               </a>
               <a
                 href={`mailto:${contactEmail}`}
