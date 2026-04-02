@@ -44,7 +44,7 @@ const PRODUCTS_CONTENT: ProductItem[]  = [
         label: "Core flow",
         text: "Show the most important workflow step in a simple visual block.",
         screenshot: {
-          src: withBase("screenshots/product-1/g_p1_1.png"),
+          src: withBase("screenshots/product-1/fc_p1_1.png"),
           alt: "Eelvisiit core flow view",
         },
       },
@@ -52,7 +52,7 @@ const PRODUCTS_CONTENT: ProductItem[]  = [
         label: "Sümptomite valik",
         text: "Spotlight one productivity feature or smart action users rely on.",
         screenshot: {
-          src: withBase("screenshots/product-1/g_p1_2.png"),
+          src: withBase("screenshots/product-1/fc_p1_2.png"),
           alt: "Eelvisiit automation view",
         },
       },
@@ -60,7 +60,7 @@ const PRODUCTS_CONTENT: ProductItem[]  = [
         label: "Triaaž",
         text: "Demonstrate how users quickly understand status, progress, or priorities.",
         screenshot: {
-          src: withBase("screenshots/product-1/g_p1_3.png"),
+          src: withBase("screenshots/product-1/fc_p1_3.png"),
           alt: "Eelvisiit visibility view",
         },
       },
@@ -110,7 +110,7 @@ const PRODUCTS_CONTENT: ProductItem[]  = [
         label: "Analytics",
         text: "Use a tight visual frame to explain the value of your reporting features.",
         screenshot: {
-          src: withBase("screenshots/product-2/analytics.svg"),
+          src: withBase("screenshots/product-2/fc_p2_1.png"),
           alt: "EelPohak analytics feature",
         },
       },
@@ -118,7 +118,7 @@ const PRODUCTS_CONTENT: ProductItem[]  = [
         label: "Prioritization",
         text: "Show how teams identify what matters most without extra complexity.",
         screenshot: {
-          src: withBase("screenshots/product-2/prioritization.svg"),
+          src: withBase("screenshots/product-2/fc_p2_2.png"),
           alt: "EelPohak prioritization feature",
         },
       },
@@ -126,7 +126,7 @@ const PRODUCTS_CONTENT: ProductItem[]  = [
         label: "Decision support",
         text: "Feature a crisp product element that reinforces clarity and confidence.",
         screenshot: {
-          src: withBase("screenshots/product-2/decision-support.svg"),
+          src: withBase("screenshots/product-2/fc_p2_3.png"),
           alt: "EelPohak decision support feature",
         },
       },
@@ -176,7 +176,7 @@ const PRODUCTS_CONTENT: ProductItem[]  = [
         label: "Experience",
         text: "Show one UI block that captures the simplicity of the product experience.",
         screenshot: {
-          src: withBase("screenshots/product-3/experience.svg"),
+          src: withBase("screenshots/product-3/fc_p3_1.png"),
           alt: "Patsienditeekond experience feature",
         },
       },
@@ -184,7 +184,7 @@ const PRODUCTS_CONTENT: ProductItem[]  = [
         label: "Guidance",
         text: "Highlight a specific element that helps users move forward with confidence.",
         screenshot: {
-          src: withBase("screenshots/product-3/guidance.svg"),
+          src: withBase("screenshots/product-3/fc_p3_2.png"),
           alt: "Patsienditeekond guidance feature",
         },
       },
@@ -192,7 +192,7 @@ const PRODUCTS_CONTENT: ProductItem[]  = [
         label: "Scale",
         text: "Demonstrate how the product stays structured and clean as usage grows.",
         screenshot: {
-          src: withBase("screenshots/product-3/scale.svg"),
+          src: withBase("screenshots/product-3/fc_p3_3.png"),
           alt: "Patsienditeekond scale feature",
         },
       },
