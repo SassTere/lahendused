@@ -41,24 +41,24 @@ const PRODUCTS_CONTENT: ProductItem[]  = [
     ],
     featureCards: [
       {
-        label: "Core flow",
-        text: "Show the most important workflow step in a simple visual block.",
+        label: "Sümptomite valik",
+        text: "Patsient valib oma sümptomid ja saab suuniseid edasiseks tegevuseks.",
         screenshot: {
           src: withBase("screenshots/product-1/fc_p1_1.png"),
           alt: "Eelvisiit core flow view",
         },
       },
       {
-        label: "Sümptomite valik",
-        text: "Spotlight one productivity feature or smart action users rely on.",
+        label: "Adaptiivne digiküsimustik",
+        text: "Patsiendi vastustel põhinev triaaž, mis suunab patsiendi õigesse teenusesse.",
         screenshot: {
           src: withBase("screenshots/product-1/fc_p1_2.png"),
           alt: "Eelvisiit automation view",
         },
       },
       {
-        label: "Triaaž",
-        text: "Demonstrate how users quickly understand status, progress, or priorities.",
+        label: "Töölaud",
+        text: "Töölaud ja pöördumise ülevaade toetavad tõhusat tööd ja kiiret reageerimist.",
         screenshot: {
           src: withBase("screenshots/product-1/fc_p1_3.png"),
           alt: "Eelvisiit visibility view",
@@ -71,23 +71,23 @@ const PRODUCTS_CONTENT: ProductItem[]  = [
     },
     screenshots: [
       {
-        title: "Avaleht",
+        title: "Sümptomite valik",
         description:
-          "A clean dashboard snapshot for showcasing the core product experience and high-level visibility.",
+          "Veebipõhine visiidieelne teenus, mis võimaldab patsientidel valida oma sümptomid ja saada suuniseid enne arsti poole pöördumist.",
         src: withBase("screenshots/product-1/g_p1_1.png"),
         alt: "Eelvisiidi screenshot",
       },
       {
-        title: "Sümptomite valik",
+        title: "Sümptomküsimustikud",
         description:
-          "Highlight how users move through the main workflow with speed, structure, and less manual effort.",
+          "Reaalajas riskiskoor (roheline–punane), mis põhineb patsiendi vastustel ja aitab suunata neid õigesse teenusesse.",
         src: withBase("screenshots/product-1/g_p1_2.png"),
         alt: "Product One task flow screenshot",
       },
       {
-        title: "Triaaž",
+        title: "Töölaud",
         description:
-          "Use this view to present key metrics or decision-support functionality in a focused way.",
+          "Integreerub PK infosüsteemidega (HL7/FHIR)",
         src: withBase("screenshots/product-1/g_p1_3.png"),
         alt: "Product One insights panel screenshot",
       },
