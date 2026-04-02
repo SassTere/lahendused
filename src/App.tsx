@@ -31,13 +31,13 @@ const PRODUCTS_CONTENT: ProductItem[]  = [
     id: "01",
     name: "Eelvisiit",
     category: "Perearstiabi digiteenindusplatvorm",
-    tagline: "Siia üks lause Eelvisiidi toimimisest.",
+    tagline: "Eelvisiit on 24/7 digilahendus, mis võimaldab patsiendil edastada oma tervisemure ja jõuda kiiresti õige spetsialistini.",
     description:
-      "Uued laused lahenduse kohta, mis on pikemad kui eelmine ja omavad kaalu ja viivad mõtte sinna kuhu vaja. Võib lisada veel miskit.",
+      "Patsient kirjeldab oma muret iseteeninduses, läbib vajadusel sümptomiküsimustiku ning saab esmase tagasiside juba enne kontaktvisiiti. Pöördumine suunatakse automaatselt sobivaima spetsialisti töölauale, mis kiirendab abi saamist, vähendab ülekoormust ja muudab töö sujuvamaks.",
     points: [
-      "Centralized workflow management",
-      "Fast status visibility for key tasks",
-      "Actionable insights in one clean view",
+      "Kõik patsiendi pöördumised kogutakse ühte süsteemi ja suunatakse automaatselt sobiva spetsialisti töölauale",
+      "Patsient saab kohe ülevaate oma pöördumise tulemusest ning järgmised sammud on selgelt mõistetavad",
+      "Struktureeritud eelinfo ja sümptomite kaardistus võimaldavad teha kiiremaid ja täpsemaid raviotsuseid",
     ],
     featureCards: [
       {
