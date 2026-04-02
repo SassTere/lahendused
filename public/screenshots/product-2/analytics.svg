@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">EelPohak Analytics</title>
+  <desc id="desc">Feature card specific screenshot placeholder for analytics.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d6f0ec"/>
+      <stop offset="100%" stop-color="#9fd3df"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect x="80" y="80" width="1440" height="740" rx="24" fill="#ffffff" opacity="0.88"/>
+  <rect x="140" y="170" width="260" height="26" rx="13" fill="#356779"/>
+  <rect x="140" y="250" width="980" height="44" rx="12" fill="#c7e3ea"/>
+  <rect x="140" y="320" width="1220" height="44" rx="12" fill="#c7e3ea"/>
+  <rect x="140" y="390" width="1140" height="44" rx="12" fill="#c7e3ea"/>
+  <text x="140" y="540" font-size="64" font-family="Arial, Helvetica, sans-serif" fill="#17322d">Analytics</text>
+</svg>

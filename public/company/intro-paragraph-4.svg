@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Idona paragraph 4 visual</title>
+  <desc id="desc">Temporary visual for centers and patient coverage paragraph.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e6efe4"/>
+      <stop offset="100%" stop-color="#dce8f6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="900" fill="url(#bg)"/>
+  <rect x="88" y="88" width="1224" height="724" rx="24" fill="#ffffff" opacity="0.9"/>
+  <rect x="170" y="180" width="1060" height="80" rx="14" fill="#d9e7ee"/>
+  <rect x="170" y="300" width="200" height="380" rx="16" fill="#ecf4ef"/>
+  <rect x="405" y="350" width="200" height="330" rx="16" fill="#e8f1f7"/>
+  <rect x="640" y="390" width="200" height="290" rx="16" fill="#e2edf6"/>
+  <rect x="875" y="430" width="200" height="250" rx="16" fill="#dbe8f3"/>
+  <rect x="1110" y="470" width="120" height="210" rx="16" fill="#d2e2f0"/>
+</svg>

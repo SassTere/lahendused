@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">EelPohak Decision support</title>
+  <desc id="desc">Feature card specific screenshot placeholder for decision support.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d7e9f7"/>
+      <stop offset="100%" stop-color="#ecf4db"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect x="100" y="100" width="1400" height="700" rx="20" fill="#ffffff" opacity="0.92"/>
+  <rect x="170" y="180" width="1240" height="120" rx="14" fill="#e1eff4"/>
+  <rect x="170" y="340" width="580" height="360" rx="14" fill="#f0f7fa"/>
+  <rect x="800" y="340" width="610" height="160" rx="14" fill="#f0f7fa"/>
+  <rect x="800" y="540" width="610" height="160" rx="14" fill="#f0f7fa"/>
+  <text x="170" y="265" font-size="44" font-family="Arial, Helvetica, sans-serif" fill="#1f434c">Decision Support Panel</text>
+</svg>

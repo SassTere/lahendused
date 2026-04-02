@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Patsienditeekond Guidance</title>
+  <desc id="desc">Feature card specific screenshot placeholder for guidance.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e6f0f9"/>
+      <stop offset="100%" stop-color="#d8efe7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect x="140" y="140" width="1320" height="620" rx="22" fill="#ffffff" opacity="0.92"/>
+  <path d="M240 260H1260" stroke="#7fa3b8" stroke-width="16" stroke-linecap="round"/>
+  <path d="M240 390H1080" stroke="#7fa3b8" stroke-width="16" stroke-linecap="round"/>
+  <path d="M240 520H1180" stroke="#7fa3b8" stroke-width="16" stroke-linecap="round"/>
+  <path d="M240 650H980" stroke="#7fa3b8" stroke-width="16" stroke-linecap="round"/>
+  <text x="240" y="340" font-size="58" font-family="Arial, Helvetica, sans-serif" fill="#1d4152">Guidance</text>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">EelPohak Prioritization</title>
+  <desc id="desc">Feature card specific screenshot placeholder for prioritization.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f5ebc8"/>
+      <stop offset="100%" stop-color="#c8e5dd"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect x="110" y="110" width="1380" height="680" rx="28" fill="#ffffff" opacity="0.9"/>
+  <circle cx="240" cy="260" r="52" fill="#17322d" opacity="0.14"/>
+  <rect x="330" y="220" width="900" height="28" rx="14" fill="#376d64" opacity="0.86"/>
+  <rect x="330" y="270" width="760" height="22" rx="11" fill="#8ab3ab"/>
+  <circle cx="240" cy="430" r="52" fill="#17322d" opacity="0.14"/>
+  <rect x="330" y="390" width="780" height="28" rx="14" fill="#376d64" opacity="0.8"/>
+  <rect x="330" y="440" width="620" height="22" rx="11" fill="#8ab3ab"/>
+  <text x="140" y="690" font-size="64" font-family="Arial, Helvetica, sans-serif" fill="#17322d">Prioritization</text>
+</svg>

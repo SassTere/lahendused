@@ -42,14 +42,26 @@ const PRODUCTS_CONTENT: ProductItem[]  = [
       {
         label: "Core flow",
         text: "Show the most important workflow step in a simple visual block.",
+        screenshot: {
+          src: withBase("screenshots/product-1/overview.png"),
+          alt: "Eelvisiit core flow view",
+        },
       },
       {
         label: "Automation",
         text: "Spotlight one productivity feature or smart action users rely on.",
+        screenshot: {
+          src: withBase("screenshots/product-1/task-flow.png"),
+          alt: "Eelvisiit automation view",
+        },
       },
       {
         label: "Visibility",
         text: "Demonstrate how users quickly understand status, progress, or priorities.",
+        screenshot: {
+          src: withBase("screenshots/product-1/insights.png"),
+          alt: "Eelvisiit visibility view",
+        },
       },
     ],
     screenshots: [
@@ -92,14 +104,26 @@ const PRODUCTS_CONTENT: ProductItem[]  = [
       {
         label: "Analytics",
         text: "Use a tight visual frame to explain the value of your reporting features.",
+        screenshot: {
+          src: withBase("screenshots/product-2/analytics.svg"),
+          alt: "EelPohak analytics feature",
+        },
       },
       {
         label: "Prioritization",
         text: "Show how teams identify what matters most without extra complexity.",
+        screenshot: {
+          src: withBase("screenshots/product-2/prioritization.svg"),
+          alt: "EelPohak prioritization feature",
+        },
       },
       {
         label: "Decision support",
         text: "Feature a crisp product element that reinforces clarity and confidence.",
+        screenshot: {
+          src: withBase("screenshots/product-2/decision-support.svg"),
+          alt: "EelPohak decision support feature",
+        },
       },
     ],
     screenshots: [
@@ -142,14 +166,26 @@ const PRODUCTS_CONTENT: ProductItem[]  = [
       {
         label: "Experience",
         text: "Show one UI block that captures the simplicity of the product experience.",
+        screenshot: {
+          src: withBase("screenshots/product-3/experience.svg"),
+          alt: "Patsienditeekond experience feature",
+        },
       },
       {
         label: "Guidance",
         text: "Highlight a specific element that helps users move forward with confidence.",
+        screenshot: {
+          src: withBase("screenshots/product-3/guidance.svg"),
+          alt: "Patsienditeekond guidance feature",
+        },
       },
       {
         label: "Scale",
         text: "Demonstrate how the product stays structured and clean as usage grows.",
+        screenshot: {
+          src: withBase("screenshots/product-3/scale.svg"),
+          alt: "Patsienditeekond scale feature",
+        },
       },
     ],
     screenshots: [
@@ -181,6 +217,41 @@ const PRODUCTS_CONTENT: ProductItem[]  = [
 
 
 const contactEmail = "info@idona.ee";
+
+const COMPANY_INTRO = {
+  title:
+    "Idona on kaasaegne esmatasandi tervishoiu teenusepakkuja, mis ühendab perearstiabi, digitaalsed lahendused ja andmepõhise juhtimise ühtseks tervikuks.",
+  items: [
+    {
+      text: "Meie eesmärk on pakkuda kvaliteetset, kättesaadavat ja jätkusuutlikku arstiabi, toetades samal ajal tervishoiutöötajate tööd ning parandades patsientide kogemust. Selle saavutamiseks arendame ja rakendame lahendusi, mis suunavad patsiendid õigel ajal õigesse teenusesse, optimeerivad töövooge ning võimaldavad järjepidevat kvaliteedi mõõtmist ja parendamist.",
+      image: {
+        src: withBase("company/intro-paragraph-1.svg"),
+        alt: "Idona eesmärkide ja teenuse kvaliteedi visuaal",
+      },
+    },
+    {
+      text: "Oleme partneriks Sotsiaalministeeriumile, Tervisekassale, Terviseametile ja erialaorganisatsioonidele, et leida ja katsetada lahendusi, mis toimivad üle Eesti. Meie roll on olla julge testija ning töötada koostöös partneritega välja mudelid, mis on rakendatavad kogu tervishoiusüsteemis.",
+      image: {
+        src: withBase("company/intro-paragraph-2.svg"),
+        alt: "Idona partnerlus kogu Eesti tervishoiuvõrgus",
+      },
+    },
+    {
+      text: "Terviseagentuur tegutseb ühtse organisatsioonina, sõltumata keskuse asukohast ja suurusest, kus kliiniline töö, digitaalsed tööriistad ja juhtimissüsteemid on omavahel integreeritud. See loob eeldused tõhusaks meeskonnatööks, paremateks ravitulemusteks ning teenuse skaleeritavuseks erinevates piirkondades. Samuti võimaldab see kiiret reageerimist piirkondlikele vajadustele ja tervishoiukriisidele.",
+      image: {
+        src: withBase("company/intro-paragraph-3.svg"),
+        alt: "Idona ühtse organisatsiooni ja koostöömudeli illustratsioon",
+      },
+    },
+    {
+      text: "Meil on võimekus lahendusi kiiresti juurutada ja katsetada kaheksas keskuses üle Eesti, hõlmates ligikaudu 25 000 patsienti. See annab meile reaalsel kasutusel põhineva teadmise, millele tuginedes teha sisulisi ja mõjusaid ettepanekuid kogu tervishoiusüsteemi arendamiseks.",
+      image: {
+        src: withBase("company/intro-paragraph-4.svg"),
+        alt: "Idona keskuste võimekuse ja skaleeritavuse illustratsioon",
+      },
+    },
+  ],
+} as const;
 
 /**
  * TYPOGRAPHY SETUP
@@ -216,6 +287,12 @@ type ScreenshotItem = {
   alt?: string;
 };
 
+type ScreenshotPreviewItem = {
+  src?: string;
+  alt?: string;
+  title?: string;
+};
+
 type ProductItem = {
   id: string;
   name: string;
@@ -223,20 +300,24 @@ type ProductItem = {
   tagline: string;
   description: string;
   points: string[];
-  featureCards: { label: string; text: string }[];
+  featureCards: {
+    label: string;
+    text: string;
+    screenshot: ScreenshotPreviewItem;
+  }[];
   screenshots: ScreenshotItem[];
 };
 
 function ScreenshotFrame({
   item,
-  label = "Screenshot",
   className = "h-full w-full",
 }: {
-  item?: ScreenshotItem;
-  label?: string;
+  item?: ScreenshotPreviewItem;
   className?: string;
 }) {
-  const hasImage = Boolean(item?.src);
+  const [failedSources, setFailedSources] = useState<Record<string, true>>({});
+  const imageSrc = item?.src;
+  const hasImage = Boolean(imageSrc) && !failedSources[imageSrc ?? ""];
 
   if (hasImage && item) {
     return (
@@ -246,10 +327,14 @@ function ScreenshotFrame({
           alt={item.alt || item.title || "Screenshot"}
           className="h-full w-full object-cover"
           loading="lazy"
+          onError={() => {
+            if (!imageSrc) return;
+            setFailedSources((previous) => ({
+              ...previous,
+              [imageSrc]: true,
+            }));
+          }}
         />
-        <div className="absolute left-3 top-3 bg-white/90 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-[#17322d] shadow-sm sm:left-4 sm:top-4">
-          {label}
-        </div>
       </div>
     );
   }
@@ -260,17 +345,6 @@ function ScreenshotFrame({
       <div className="absolute inset-x-[12%] top-[10%] h-[64%] bg-[rgba(255,255,255,0.62)] [clip-path:polygon(0_0,100%_0,100%_82%,0_54%)]" />
       <div className="absolute bottom-[12%] left-[8%] h-[30%] w-[54%] bg-[rgba(255,255,255,0.82)] [clip-path:polygon(0_35%,100%_0,100%_78%,0_100%)]" />
       <div className="absolute bottom-[14%] right-[10%] h-[24%] w-[24%] rounded-full border border-white/80 bg-white/60" />
-      <div className="absolute left-3 top-3 bg-white/94 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-[#17322d] shadow-sm sm:left-4 sm:top-4">
-        {label}
-      </div>
-      <div className="absolute bottom-4 left-4 right-4 sm:bottom-5 sm:left-5 sm:right-5">
-        <div className="text-[13px] font-medium text-[#17322d]">
-          Add product screenshot
-        </div>
-        <div className="mt-1 text-[12px] leading-[1.4] text-[#53706a]">
-          Replace the placeholder by setting the screenshot <code>src</code> in the content object.
-        </div>
-      </div>
     </div>
   );
 }
@@ -491,7 +565,6 @@ export default function SaaSOnePager() {
                         <div className="overflow-hidden border border-[rgba(23,50,45,0.10)] bg-white">
                           <ScreenshotFrame
                             item={previewShot}
-                            label="Eelvaade"
                             className="h-[240px] w-full sm:h-[320px] lg:h-[360px]"
                           />
                         </div>
@@ -510,8 +583,11 @@ export default function SaaSOnePager() {
                         <div className="text-[11px] uppercase tracking-[0.16em] text-[#53706a]">
                           {card.label}
                         </div>
-                        <div className="mt-3 h-[88px] overflow-hidden bg-[linear-gradient(90deg,rgba(53,103,121,0.12)_0%,rgba(79,136,154,0.10)_25%,rgba(114,185,186,0.12)_50%,rgba(102,173,228,0.12)_75%,rgba(235,209,152,0.16)_100%)]">
-                          <div className="h-full w-full bg-[linear-gradient(160deg,transparent_0%,transparent_40%,rgba(255,255,255,0.68)_40%,rgba(255,255,255,0.68)_68%,transparent_68%)]" />
+                        <div className="mt-3 overflow-hidden border border-[rgba(23,50,45,0.10)] bg-white">
+                          <ScreenshotFrame
+                            item={card.screenshot}
+                            className="h-[108px] w-full"
+                          />
                         </div>
                         <p className="mt-4 text-[14px] leading-[1.45] text-[#53706a]">
                           {card.text}
@@ -520,23 +596,61 @@ export default function SaaSOnePager() {
                     ))}
                   </div>
 
-                  <div className="flex flex-wrap gap-2">
-                    {product.screenshots.map((item, index) => (
-                      <button
-                        key={item.title}
-                        type="button"
-                        onClick={() => openGallery(product, index)}
-                        className="border border-[rgba(23,50,45,0.10)] bg-white px-3 py-2 text-[11px] uppercase tracking-[0.12em] text-[#26423d] transition hover:bg-[#f7fbfb] sm:px-4 sm:text-[12px]"
-                      >
-                        {item.title}
-                      </button>
-                    ))}
-                  </div>
                 </div>
               </motion.article>
             );
           })}
         </section>
+
+        <motion.section
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.55, ease: "easeOut" }}
+          className="relative left-1/2 right-1/2 mt-12 w-screen -translate-x-1/2 overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(114,185,186,0.14),transparent_34%),radial-gradient(circle_at_top_right,rgba(102,173,228,0.12),transparent_36%),linear-gradient(180deg,rgba(235,209,152,0.14)_0%,rgba(79,136,154,0.08)_34%,rgba(247,251,251,0.92)_100%)] py-8 sm:mt-16 sm:py-10 lg:py-12"
+        >
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-[linear-gradient(180deg,rgba(255,255,255,0.52)_0%,rgba(255,255,255,0)_100%)]" />
+          <div className="relative mx-auto max-w-[1360px] px-4 sm:px-6 lg:px-8">
+            <h2
+              className="mx-auto max-w-[1080px] pt-3 pb-3 text-center text-[clamp(1.45rem,3.3vw,2.7rem)] font-normal leading-[1.05] tracking-[-0.045em] text-[#17322d] sm:pt-4 sm:pb-4 lg:pt-5 lg:pb-5"
+              style={typography.display}
+            >
+              {COMPANY_INTRO.title}
+            </h2>
+
+            <div className="mt-7 space-y-5 sm:mt-9 sm:space-y-6">
+              {COMPANY_INTRO.items.map((item, index) => {
+              const imageFirst = index % 2 === 1;
+
+              return (
+                <article
+                  key={item.text}
+                  className="grid gap-4 border border-[rgba(23,50,45,0.16)] bg-white/95 p-4 shadow-[0_14px_34px_rgba(23,50,45,0.08)] sm:gap-5 sm:p-5 lg:grid-cols-2 lg:items-center lg:gap-7 lg:p-6"
+                >
+                  <div className={imageFirst ? "lg:order-2" : ""}>
+                    <p className="text-[15px] leading-[1.6] text-[#53706a] sm:text-[17px]">
+                      {item.text}
+                    </p>
+                  </div>
+
+                  <div className={imageFirst ? "lg:order-1" : ""}>
+                    <div className="overflow-hidden border border-[rgba(23,50,45,0.16)] bg-white shadow-[0_18px_36px_rgba(23,50,45,0.12)]">
+                      <div className="bg-[linear-gradient(135deg,rgba(79,136,154,0.08)_0%,rgba(114,185,186,0.10)_38%,rgba(102,173,228,0.09)_72%,rgba(235,209,152,0.14)_100%)] p-2.5 sm:p-3">
+                        <div className="overflow-hidden border border-[rgba(23,50,45,0.14)] bg-white">
+                          <ScreenshotFrame
+                            item={item.image}
+                            className="h-[220px] w-full sm:h-[300px]"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              );
+              })}
+            </div>
+          </div>
+        </motion.section>
       </div>
 
       <AnimatePresence>
@@ -645,7 +759,6 @@ export default function SaaSOnePager() {
                         <div className="overflow-hidden border border-[rgba(23,50,45,0.10)] bg-white">
                           <ScreenshotFrame
                             item={activeGallery.screenshots[activeIndex]}
-                            label="Functionality view"
                             className="h-[280px] w-full sm:h-[380px] lg:h-[560px]"
                           />
                         </div>
@@ -655,11 +768,8 @@ export default function SaaSOnePager() {
 
                   <div className="flex flex-col justify-between bg-[linear-gradient(180deg,rgba(255,255,255,1)_0%,rgba(247,251,251,0.72)_100%)] p-4 sm:p-6 lg:p-8">
                     <div>
-                      <div className="inline-flex bg-[#d9f245] px-3 py-1 text-[11px] font-medium uppercase tracking-[0.12em] text-[#17322d]">
-                        Functionality description
-                      </div>
                       <p
-                        className="mt-5 max-w-[560px] text-[18px] leading-[1.26] tracking-[-0.03em] text-[#26423d] sm:text-[22px]"
+                        className="max-w-[560px] text-[18px] leading-[1.26] tracking-[-0.03em] text-[#26423d] sm:text-[22px]"
                         style={typography.display}
                       >
                         {activeGallery.screenshots[activeIndex].description}
