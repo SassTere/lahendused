@@ -2,9 +2,6 @@ import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   X,
-  ChevronLeft,
-  ChevronRight,
-  Expand,
   ArrowRight,
   Menu,
 } from "lucide-react";
@@ -220,7 +217,7 @@ const contactEmail = "info@idona.ee";
 
 const COMPANY_INTRO = {
   title:
-    "Idona on kaasaegne esmatasandi tervishoiu teenusepakkuja, mis ühendab perearstiabi, digitaalsed lahendused ja andmepõhise juhtimise ühtseks tervikuks.",
+    "Idona  on kaasaegne esmatasandi tervishoiu teenusepakkuja, mis ühendab perearstiabi, digitaalsed lahendused ja andmepõhise juhtimise ühtseks tervikuks.",
   items: [
     {
       text: "Meie eesmärk on pakkuda kvaliteetset, kättesaadavat ja jätkusuutlikku arstiabi, toetades samal ajal tervishoiutöötajate tööd ning parandades patsientide kogemust. Selle saavutamiseks arendame ja rakendame lahendusi, mis suunavad patsiendid õigel ajal õigesse teenusesse, optimeerivad töövooge ning võimaldavad järjepidevat kvaliteedi mõõtmist ja parendamist.",
@@ -450,45 +447,42 @@ export default function SaaSOnePager() {
         </header>
 
         <section className="relative px-1 pt-10 sm:pt-14 lg:pt-16">
-          <div className="mx-auto max-w-[1320px]">
-            <div
-              className="inline-flex bg-[#c2dce3] px-3 py-1 text-[11px] font-medium uppercase tracking-[0.1em] text-[#17322d]"
-              style={typography.body}
-            >
-              Idona lahendused
-            </div>
-            <h1
-              className="
-                mt-6
-                max-w-none
-                text-[clamp(2.4rem,9vw,6rem)]
-                leading-[0.9]
-                tracking-[-0.055em]
-                text-[#17322d]
-              "
-              style={typography.display}
-            >
-              <span className="block whitespace-nowrap">Loome lahendusi</span>
-              <span className="block whitespace-nowrap">meedikutele,</span>
-              <span className="block whitespace-nowrap">patsientide heaks</span>
-            </h1>
-
-            <div className="mt-8 grid gap-5 sm:mt-10 md:grid-cols-2 xl:grid-cols-[1.15fr_1fr_0.52fr] xl:items-end">
-              <p
-                className="max-w-[560px] text-[18px] leading-[1.24] tracking-[-0.035em] text-[#26423d] sm:text-[21px]"
+          <div className="mx-auto max-w-[1320px] flex flex-col lg:grid lg:grid-cols-2 lg:items-center lg:gap-12 xl:gap-16">
+            <div>
+              <div
+                className="inline-flex bg-[#c2dce3] px-3 py-1 text-[11px] font-medium uppercase tracking-[0.1em] text-[#17322d]"
+                style={typography.body}
+              >
+                Idona lahendused
+              </div>
+              <h1
+                className="
+                  mt-6
+                  max-w-none
+                  text-[clamp(2.4rem,9vw,6rem)]
+                  leading-[0.9]
+                  tracking-[-0.055em]
+                  text-[#17322d]
+                "
                 style={typography.display}
               >
-                Aitame vähendada töökoormust, parandada patsiendiohutust ja tuua fookuse sinna, kus see loeb, parematele otsustele ja ravitulemustele.
-              </p>
-              <p className="max-w-[420px] text-[15px] leading-[1.5] text-[#356779] sm:text-[16px]">
-                -
-              </p>
-              <div className="border-t border-[rgba(23,50,45,0.10)] pt-4 xl:justify-self-end xl:border-t-0 xl:pt-0">
-                <div className="text-[24px] tracking-[-0.065em] text-[#17322d]" style={typography.display}>
-                  i
-                </div>
-                <div className="text-[14px] text-[#53706a]">pilt lisada!</div>
+                <span className="block whitespace-nowrap">Loome lahendusi</span>
+                <span className="block whitespace-nowrap">meedikutele,</span>
+                <span className="block whitespace-nowrap">patsientide heaks</span>
+              </h1>
+
+              <div className="mt-8 sm:mt-10">
+                <p
+                  className="max-w-[560px] text-[18px] leading-[1.24] tracking-[-0.035em] text-[#26423d] sm:text-[21px]"
+                  style={typography.display}
+                >
+                  Aitame vähendada töökoormust, parandada patsiendiohutust ja tuua fookuse sinna, kus see loeb, parematele otsustele ja ravitulemustele.
+                </p>
               </div>
+            </div>
+
+            <div className="mt-8 sm:mt-10 lg:mt-0 flex justify-center">
+              <img src={withBase("Idona_Hero_SVG.svg")} alt="Idona hero visual" className="w-full max-w-[280px]" />
             </div>
           </div>
         </section>
@@ -548,19 +542,6 @@ export default function SaaSOnePager() {
                     className="group block w-full text-left"
                   >
                     <div className="overflow-hidden border border-[rgba(23,50,45,0.10)] bg-white shadow-[0_14px_40px_rgba(23,50,45,0.07)] transition duration-300 hover:-translate-y-1">
-                      <div className="flex items-center justify-between border-b border-[rgba(23,50,45,0.08)] px-4 py-3 sm:px-5 sm:py-4">
-                        <div
-                          className="text-[11px] uppercase tracking-[0.16em] text-[#356779] sm:text-[12px]"
-                          style={typography.body}
-                        >
-                          {product.category}
-                        </div>
-                        <div className="inline-flex items-center gap-2 text-[12px] text-[#26423d] sm:text-[13px]">
-                          <span>Vaata lähemalt</span>
-                          <Expand className="h-3.5 w-3.5" />
-                        </div>
-                      </div>
-
                       <div className="bg-[linear-gradient(135deg,rgba(79,136,154,0.06)_0%,rgba(114,185,186,0.08)_38%,rgba(102,173,228,0.08)_72%,rgba(235,209,152,0.12)_100%)] p-3 sm:p-4">
                         <div className="overflow-hidden border border-[rgba(23,50,45,0.10)] bg-white">
                           <ScreenshotFrame
@@ -627,13 +608,13 @@ export default function SaaSOnePager() {
                   key={item.text}
                   className="grid gap-4 border border-[rgba(23,50,45,0.16)] bg-white/95 p-4 shadow-[0_14px_34px_rgba(23,50,45,0.08)] sm:gap-5 sm:p-5 lg:grid-cols-2 lg:items-center lg:gap-7 lg:p-6"
                 >
-                  <div className={imageFirst ? "lg:order-2" : ""}>
+                  <div className={imageFirst ? "order-last lg:order-2" : "order-last lg:order-none"}>
                     <p className="text-[15px] leading-[1.6] text-[#53706a] sm:text-[17px]">
                       {item.text}
                     </p>
                   </div>
 
-                  <div className={imageFirst ? "lg:order-1" : ""}>
+                  <div className={imageFirst ? "order-first lg:order-1" : "order-first lg:order-none"}>
                     <div className="overflow-hidden border border-[rgba(23,50,45,0.16)] bg-white shadow-[0_18px_36px_rgba(23,50,45,0.12)]">
                       <div className="bg-[linear-gradient(135deg,rgba(79,136,154,0.08)_0%,rgba(114,185,186,0.10)_38%,rgba(102,173,228,0.09)_72%,rgba(235,209,152,0.14)_100%)] p-2.5 sm:p-3">
                         <div className="overflow-hidden border border-[rgba(23,50,45,0.14)] bg-white">
@@ -808,24 +789,7 @@ export default function SaaSOnePager() {
                       </div>
                     </div>
 
-                    <div className="mt-8 flex flex-col gap-3 border-t border-[rgba(23,50,45,0.08)] pt-5 sm:flex-row sm:items-center sm:justify-between">
-                      <button
-                        type="button"
-                        onClick={goPrev}
-                        className="inline-flex items-center justify-center gap-2 border border-[rgba(23,50,45,0.10)] bg-white px-4 py-3 text-[14px] font-medium text-[#26423d] transition hover:bg-[#f7fbfb]"
-                      >
-                        <ChevronLeft className="h-4 w-4" />
-                        Previous
-                      </button>
-                      <button
-                        type="button"
-                        onClick={goNext}
-                        className="inline-flex items-center justify-center gap-2 bg-[#17322d] px-4 py-3 text-[14px] font-medium text-white transition hover:bg-[#0f2521]"
-                      >
-                        Next
-                        <ChevronRight className="h-4 w-4" />
-                      </button>
-                    </div>
+
                   </div>
                 </div>
               </motion.div>
