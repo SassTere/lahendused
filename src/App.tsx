@@ -44,47 +44,51 @@ const PRODUCTS_CONTENT: ProductItem[]  = [
         label: "Core flow",
         text: "Show the most important workflow step in a simple visual block.",
         screenshot: {
-          src: withBase("screenshots/product-1/overview.png"),
+          src: withBase("screenshots/product-1/g_p1_1.png"),
           alt: "Eelvisiit core flow view",
         },
       },
       {
-        label: "Automation",
+        label: "Sümptomite valik",
         text: "Spotlight one productivity feature or smart action users rely on.",
         screenshot: {
-          src: withBase("screenshots/product-1/task-flow.png"),
+          src: withBase("screenshots/product-1/g_p1_2.png"),
           alt: "Eelvisiit automation view",
         },
       },
       {
-        label: "Visibility",
+        label: "Triaaž",
         text: "Demonstrate how users quickly understand status, progress, or priorities.",
         screenshot: {
-          src: withBase("screenshots/product-1/insights.png"),
+          src: withBase("screenshots/product-1/g_p1_3.png"),
           alt: "Eelvisiit visibility view",
         },
       },
     ],
+    mainPreview: {
+      src: withBase("screenshots/product-1/main_preview_product_1.png"),
+      alt: "Eelvisiit main preview",
+    },
     screenshots: [
       {
         title: "Avaleht",
         description:
           "A clean dashboard snapshot for showcasing the core product experience and high-level visibility.",
-        src: withBase("screenshots/product-1/overview.png"),
+        src: withBase("screenshots/product-1/g_p1_1.png"),
         alt: "Eelvisiidi screenshot",
       },
       {
         title: "Sümptomite valik",
         description:
           "Highlight how users move through the main workflow with speed, structure, and less manual effort.",
-        src: withBase("screenshots/product-1/task-flow.png"),
+        src: withBase("screenshots/product-1/g_p1_2.png"),
         alt: "Product One task flow screenshot",
       },
       {
         title: "Triaaž",
         description:
           "Use this view to present key metrics or decision-support functionality in a focused way.",
-        src: withBase("screenshots/product-1/insights.png"),
+        src: withBase("screenshots/product-1/g_p1_3.png"),
         alt: "Product One insights panel screenshot",
       },
     ],
@@ -127,26 +131,30 @@ const PRODUCTS_CONTENT: ProductItem[]  = [
         },
       },
     ],
+    mainPreview: {
+      src: withBase("screenshots/product-2/main_preview_product_2.png"),
+      alt: "EelPohak main preview",
+    },
     screenshots: [
       {
         title: "Live overview",
         description:
           "Present a high-level command center view for daily monitoring, trends, and quick decisions.",
-        src: withBase("screenshots/product-2/live-overview.png"),
+        src: withBase("screenshots/product-2/g_p2_1.png"),
         alt: "Product Two live overview screenshot",
       },
       {
         title: "Detailed module",
         description:
           "Open a focused screenshot that explains one important product function in context.",
-        src: withBase("screenshots/product-2/detailed-module.png"),
+        src: withBase("screenshots/product-2/g_p2_2.png"),
         alt: "Product Two detailed module screenshot",
       },
       {
         title: "Reporting view",
         description:
           "Show how results, summaries, or trends are made easy to understand for busy teams.",
-        src: withBase("screenshots/product-2/reporting-view.png"),
+        src: withBase("screenshots/product-2/g_p2_3.png"),
         alt: "Product Two reporting view screenshot",
       },
     ],
@@ -189,26 +197,30 @@ const PRODUCTS_CONTENT: ProductItem[]  = [
         },
       },
     ],
+    mainPreview: {
+      src: withBase("screenshots/product-3/main_preview_product_3.png"),
+      alt: "Patsienditeekond main preview",
+    },
     screenshots: [
       {
         title: "User journey",
         description:
           "Show the core service path or interaction flow in a calm, elegant way.",
-        src: withBase("screenshots/product-3/user-journey.png"),
+        src: withBase("screenshots/product-3/g_p3_1.png"),
         alt: "Product Three user journey screenshot",
       },
       {
         title: "Smart interaction",
         description:
           "Use this slot to explain an experience-enhancing product function with a more detailed screen.",
-        src: withBase("screenshots/product-3/smart-interaction.png"),
+        src: withBase("screenshots/product-3/g_p3_2.png"),
         alt: "Product Three smart interaction screenshot",
       },
       {
         title: "Management view",
         description:
           "Present the operational side of the platform with a clear supporting visual.",
-        src: withBase("screenshots/product-3/management-view.png"),
+        src: withBase("screenshots/product-3/g_p3_3.png"),
         alt: "Product Three management view screenshot",
       },
     ],
@@ -289,6 +301,7 @@ type ProductItem = {
   tagline: string;
   description: string;
   points: string[];
+  mainPreview?: ScreenshotPreviewItem;
   featureCards: {
     label: string;
     text: string;
@@ -484,7 +497,7 @@ export default function SaaSOnePager() {
 
         <section className="mx-auto mt-12 max-w-[1360px] space-y-0 border-t border-[rgba(23,50,45,0.08)] sm:mt-16">
           {products.map((product, productIndex) => {
-            const previewShot = product.screenshots?.[0];
+            const previewShot = product.mainPreview ?? product.featureCards?.[1]?.screenshot;
 
             return (
               <motion.article
