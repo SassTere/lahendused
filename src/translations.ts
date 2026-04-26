@@ -161,7 +161,7 @@ export function buildSiteTranslations(
             icon: "Users",
           },
           {
-            text: "Terviseagentuur tegutseb ühtse organisatsioonina, sõltumata keskuse asukohast ja suurusest, kus kliiniline töö, digitaalsed tööriistad ja juhtimissüsteemid on omavahel integreeritud. See loob eeldused tõhusaks meeskonnatööks, paremateks ravitulemusteks ning teenuse skaleeritavuseks erinevates piirkondades. Samuti võimaldab see kiiret reageerimist piirkondlikele vajadustele ja tervishoiukriisidele.",
+            text: "Idona tegutseb ühtse organisatsioonina, sõltumata keskuse asukohast ja suurusest, kus kliiniline töö, digitaalsed tööriistad ja juhtimissüsteemid on omavahel integreeritud. See loob eeldused tõhusaks meeskonnatööks, paremateks ravitulemusteks ning teenuse skaleeritavuseks erinevates piirkondades. Samuti võimaldab see kiiret reageerimist piirkondlikele vajadustele ja tervishoiukriisidele.",
             icon: "Layers",
           },
           {
@@ -414,7 +414,7 @@ export function buildSiteTranslations(
             icon: "Users",
           },
           {
-            text: "The health agency operates as one integrated organization regardless of center size or location, where clinical work, digital tools, and management systems are closely connected. This creates the conditions for stronger teamwork, better clinical outcomes, and service scalability across different regions. It also enables a fast response to local needs and healthcare crises.",
+            text: "Idona operates as one integrated organization regardless of center size or location, where clinical work, digital tools, and management systems are closely connected. This creates the conditions for stronger teamwork, better clinical outcomes, and service scalability across different regions. It also enables a fast response to local needs and healthcare crises.",
             icon: "Layers",
           },
           {

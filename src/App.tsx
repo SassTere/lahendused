@@ -155,7 +155,9 @@ export default function SaaSOnePager() {
   const [language, setLanguage] = useState<Language>(getLanguageFromLocation);
   const siteTranslations = useMemo(() => buildSiteTranslations(withBase), []);
   const content = siteTranslations[language];
-  const products = content.products;
+  // Temporary visibility toggle by product id; keep product content editable in translations.
+  const hiddenProductIds = new Set(["03"]);
+  const products = content.products.filter((product) => !hiddenProductIds.has(product.id));
   const [activeGalleryId, setActiveGalleryId] = useState<string | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
