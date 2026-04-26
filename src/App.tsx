@@ -8,6 +8,8 @@ import {
   Users,
   Layers,
   Globe,
+  Mail,
+  Send,
 } from "lucide-react";
 import {
   buildSiteTranslations,
@@ -31,7 +33,7 @@ import {
  */
 const withBase = (path: string) =>
   `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
-const contactEmail = "info@idona.ee";
+const contactEmail = "al.roslin@gmail.com";
 const languagePathByCode: Record<Language, string> = {
   et: "ee",
   en: "en",
@@ -157,6 +159,9 @@ export default function SaaSOnePager() {
   const [activeGalleryId, setActiveGalleryId] = useState<string | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [contactModalOpen, setContactModalOpen] = useState(false);
+  const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
+  const [submissionStatus, setSubmissionStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const activeGallery =
     activeGalleryId === null
       ? null
@@ -192,6 +197,53 @@ export default function SaaSOnePager() {
     setActiveIndex(0);
   };
 
+  const closeContactModal = () => {
+    setContactModalOpen(false);
+    setFormData({ name: "", email: "", subject: "", message: "" });
+    setSubmissionStatus("idle");
+  };
+
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleContactSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmissionStatus("loading");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "8f53b0ee-68e7-4059-a1e8-f84986ef50b5",
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          from_name: "Idona Contact Form",
+          to_email: contactEmail,
+        }),
+      });
+
+      if (response.ok) {
+        setSubmissionStatus("success");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        setTimeout(() => {
+          closeContactModal();
+        }, 2000);
+      } else {
+        setSubmissionStatus("error");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSubmissionStatus("error");
+    }
+  };
+
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (!activeGallery) return;
@@ -213,11 +265,11 @@ export default function SaaSOnePager() {
   }, [activeGallery]);
 
   useEffect(() => {
-    document.body.style.overflow = activeGallery || mobileMenuOpen ? "hidden" : "";
+    document.body.style.overflow = activeGallery || mobileMenuOpen || contactModalOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [activeGallery, mobileMenuOpen]);
+  }, [activeGallery, mobileMenuOpen, contactModalOpen]);
 
   useEffect(() => {
     const onPopState = () => {
@@ -300,13 +352,14 @@ export default function SaaSOnePager() {
                   </button>
                 ))}
               </div>
-              <a
-                href={`mailto:${contactEmail}`}
+              <button
+                onClick={() => setContactModalOpen(true)}
                 className="hidden bg-[#17322d] px-5 py-3 text-[14px] font-medium tracking-[-0.02em] text-white transition hover:bg-[#0f2521] sm:inline-flex lg:px-6"
                 style={typography.body}
+                aria-label={content.contactLabel}
               >
                 {content.contactLabel}
-              </a>
+              </button>
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(true)}
@@ -583,13 +636,15 @@ export default function SaaSOnePager() {
                   </button>
                 ))}
               </div>
-              <a
-                href={`mailto:${contactEmail}`}
+              <button
+                type="button"
+                onClick={() => setContactModalOpen(true)}
                 className="mt-6 inline-flex w-fit bg-[#17322d] px-5 py-3 text-[14px] font-medium tracking-[-0.02em] text-white"
                 style={typography.body}
+                aria-label={content.contactLabel}
               >
                 {content.contactLabel}
-              </a>
+              </button>
             </div>
           </motion.div>
         )}
@@ -694,6 +749,168 @@ export default function SaaSOnePager() {
 
                   </div>
                 </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {contactModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-[rgba(255,255,255,0.92)] backdrop-blur-sm"
+          >
+            <div className="absolute inset-0 overflow-y-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 24, scale: 0.99 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 18, scale: 0.99 }}
+                transition={{ duration: 0.24, ease: "easeOut" }}
+                className="mx-auto min-h-screen w-full max-w-[600px] bg-white p-4 sm:p-6 md:p-8 flex flex-col justify-center"
+              >
+                <div className="flex items-start justify-between gap-4 mb-6">
+                  <h2
+                    className="text-[clamp(2rem,5vw,3rem)] font-normal leading-[0.9] tracking-[-0.075em] text-[#17322d]"
+                    style={typography.display}
+                  >
+                    {content.contact.modalTitle}
+                  </h2>
+                  <button
+                    type="button"
+                    onClick={closeContactModal}
+                    className="inline-flex h-11 w-11 shrink-0 items-center justify-center border border-[rgba(23,50,45,0.10)] bg-white transition hover:bg-[#f7fbfb]"
+                    aria-label={content.contact.closeLabel}
+                  >
+                    <X className="h-5 w-5 text-[#17322d]" />
+                  </button>
+                </div>
+
+                <div className="mb-6 flex items-center gap-3 p-4 bg-[rgba(79,136,154,0.05)] border border-[rgba(23,50,45,0.10)]">
+                  <Mail className="h-5 w-5 text-[#4a8a7f] shrink-0" />
+                  <div>
+                    <p className="text-[12px] uppercase tracking-[0.12em] text-[#53706a]">
+                      {content.contact.emailLabel}
+                    </p>
+                    <p className="text-[16px] font-medium text-[#17322d]">
+                      {content.contact.email}
+                    </p>
+                  </div>
+                </div>
+
+                <form onSubmit={handleContactSubmit} className="space-y-4">
+                  <div>
+                    <label
+                      htmlFor="contact-name"
+                      className="block text-[14px] font-medium tracking-[-0.02em] text-[#17322d] mb-2"
+                      style={typography.body}
+                    >
+                      {content.contact.nameLabel}
+                    </label>
+                    <input
+                      id="contact-name"
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleFormChange}
+                      placeholder={content.contact.namePlaceholder}
+                      required
+                      className="w-full border border-[rgba(23,50,45,0.10)] bg-white px-4 py-3 text-[14px] placeholder-[#a0b2af] focus:outline-none focus:border-[rgba(23,50,45,0.20)] focus:ring-1 focus:ring-[rgba(79,136,154,0.20)]"
+                      style={typography.body}
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="contact-email"
+                      className="block text-[14px] font-medium tracking-[-0.02em] text-[#17322d] mb-2"
+                      style={typography.body}
+                    >
+                      {content.contact.emailLabel}
+                    </label>
+                    <input
+                      id="contact-email"
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleFormChange}
+                      placeholder="you@example.com"
+                      required
+                      className="w-full border border-[rgba(23,50,45,0.10)] bg-white px-4 py-3 text-[14px] placeholder-[#a0b2af] focus:outline-none focus:border-[rgba(23,50,45,0.20)] focus:ring-1 focus:ring-[rgba(79,136,154,0.20)]"
+                      style={typography.body}
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="contact-subject"
+                      className="block text-[14px] font-medium tracking-[-0.02em] text-[#17322d] mb-2"
+                      style={typography.body}
+                    >
+                      {content.contact.subjectLabel}
+                    </label>
+                    <input
+                      id="contact-subject"
+                      type="text"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleFormChange}
+                      placeholder={content.contact.subjectPlaceholder}
+                      required
+                      className="w-full border border-[rgba(23,50,45,0.10)] bg-white px-4 py-3 text-[14px] placeholder-[#a0b2af] focus:outline-none focus:border-[rgba(23,50,45,0.20)] focus:ring-1 focus:ring-[rgba(79,136,154,0.20)]"
+                      style={typography.body}
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="contact-message"
+                      className="block text-[14px] font-medium tracking-[-0.02em] text-[#17322d] mb-2"
+                      style={typography.body}
+                    >
+                      {content.contact.messageLabel}
+                    </label>
+                    <textarea
+                      id="contact-message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleFormChange}
+                      placeholder={content.contact.messagePlaceholder}
+                      required
+                      rows={5}
+                      className="w-full border border-[rgba(23,50,45,0.10)] bg-white px-4 py-3 text-[14px] placeholder-[#a0b2af] focus:outline-none focus:border-[rgba(23,50,45,0.20)] focus:ring-1 focus:ring-[rgba(79,136,154,0.20)]"
+                      style={typography.body}
+                    />
+                  </div>
+
+                  {submissionStatus === "success" && (
+                    <div className="p-4 bg-[rgba(74,138,127,0.08)] border border-[rgba(74,138,127,0.20)] text-[14px] text-[#4a8a7f]">
+                      {content.contact.successMessage}
+                    </div>
+                  )}
+
+                  {submissionStatus === "error" && (
+                    <div className="p-4 bg-[rgba(220,97,97,0.08)] border border-[rgba(220,97,97,0.20)] text-[14px] text-[#dc6161]">
+                      {content.contact.errorMessage}
+                    </div>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={submissionStatus === "loading"}
+                    className="w-full bg-[#17322d] px-5 py-3 text-[14px] font-medium tracking-[-0.02em] text-white transition hover:bg-[#0f2521] disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    style={typography.body}
+                  >
+                    <Send className="h-4 w-4" />
+                    {submissionStatus === "loading"
+                      ? language === "et"
+                        ? "Saatmine..."
+                        : "Sending..."
+                      : content.contact.sendButton}
+                  </button>
+                </form>
               </motion.div>
             </div>
           </motion.div>

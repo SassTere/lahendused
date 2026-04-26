@@ -45,6 +45,21 @@ export type SiteTranslation = {
   menuLabel: string;
   aboutLabel: string;
   contactLabel: string;
+  contact: {
+    modalTitle: string;
+    email: string;
+    emailLabel: string;
+    nameLabel: string;
+    namePlaceholder: string;
+    subjectLabel: string;
+    subjectPlaceholder: string;
+    messageLabel: string;
+    messagePlaceholder: string;
+    sendButton: string;
+    closeLabel: string;
+    successMessage: string;
+    errorMessage: string;
+  };
   hero: {
     eyebrow: string;
     titleLines: string[];
@@ -112,6 +127,21 @@ export function buildSiteTranslations(
       menuLabel: "Menüü",
       aboutLabel: "Meist",
       contactLabel: "Võta ühendust",
+      contact: {
+        modalTitle: "Võta ühendust",
+        email: "info@idona.ee",
+        emailLabel: "Email",
+        nameLabel: "Sinu nimi",
+        namePlaceholder: "Nimi",
+        subjectLabel: "Teema",
+        subjectPlaceholder: "Teema",
+        messageLabel: "Sõnum",
+        messagePlaceholder: "Kirjuta oma sõnum siin...",
+        sendButton: "Saada",
+        closeLabel: "Sulge",
+        successMessage: "Aitäh! Sinu sõnum on edukalt saadetud.",
+        errorMessage: "Viga! Sõnumi saatmine ebaõnnestus. Otsi ise ühendust: info@idona.ee",
+      },
       hero: {
         eyebrow: "Idona lahendused",
         titleLines: ["Loome lahendusi", "meedikutele,", "patsientide heaks"],
@@ -350,6 +380,21 @@ export function buildSiteTranslations(
       menuLabel: "Menu",
       aboutLabel: "About",
       contactLabel: "Contact us",
+      contact: {
+        modalTitle: "Contact us",
+        email: "info@idona.ee",
+        emailLabel: "Email address",
+        nameLabel: "Your name",
+        namePlaceholder: "Name",
+        subjectLabel: "Subject",
+        subjectPlaceholder: "Subject",
+        messageLabel: "Message",
+        messagePlaceholder: "Write your message here...",
+        sendButton: "Send",
+        closeLabel: "Close",
+        successMessage: "Thank you! Your message has been sent successfully.",
+        errorMessage: "Error! Failed to send your message. Please contact us directly: info@idona.ee",
+      },
       hero: {
         eyebrow: "Idona solutions",
         titleLines: ["We build solutions", "for clinicians,", "for better patient care"],
