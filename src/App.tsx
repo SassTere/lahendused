@@ -9,6 +9,12 @@ import {
   Layers,
   Globe,
 } from "lucide-react";
+import {
+  buildSiteTranslations,
+  type IconName,
+  type Language,
+  type ScreenshotPreviewItem,
+} from "./translations";
 
 // Logo imported from public folder via withBase()
 
@@ -25,234 +31,48 @@ import {
  */
 const withBase = (path: string) =>
   `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
-
-const PRODUCTS_CONTENT: ProductItem[]  = [
-  {
-    id: "01",
-    name: "Eelvisiit",
-    category: "Perearstiabi digiteenindusplatvorm",
-    tagline: "Eelvisiit on 24/7 digilahendus, mis võimaldab patsiendil edastada oma tervisemure ja jõuda kiiresti õige spetsialistini.",
-    description:
-      "Patsient kirjeldab oma muret iseteeninduses, läbib vajadusel sümptomiküsimustiku ning saab esmase tagasiside juba enne kontaktvisiiti. Pöördumine suunatakse automaatselt sobivaima spetsialisti töölauale, mis kiirendab abi saamist, vähendab ülekoormust ja muudab töö sujuvamaks.",
-    points: [
-      "Kõik patsiendi pöördumised kogutakse ühte süsteemi ja suunatakse automaatselt sobiva spetsialisti töölauale",
-      "Patsient saab kohe ülevaate oma pöördumise tulemusest ning järgmised sammud on selgelt mõistetavad",
-      "Struktureeritud eelinfo ja sümptomite kaardistus võimaldavad teha kiiremaid ja täpsemaid raviotsuseid",
-    ],
-    featureCards: [
-      {
-        label: "Sümptomite valik",
-        text: "Patsient valib oma sümptomid ja saab suuniseid edasiseks tegevuseks.",
-        screenshot: {
-          src: withBase("screenshots/product-1/fc_p1_1.png"),
-          alt: "Eelvisiit core flow view",
-        },
-      },
-      {
-        label: "Adaptiivne digiküsimustik",
-        text: "Patsiendi vastustel põhinev triaaž, mis suunab patsiendi õigesse teenusesse.",
-        screenshot: {
-          src: withBase("screenshots/product-1/fc_p1_2.png"),
-          alt: "Eelvisiit automation view",
-        },
-      },
-      {
-        label: "Töölaud",
-        text: "Töölaud ja pöördumise ülevaade toetavad tõhusat tööd ja kiiret reageerimist.",
-        screenshot: {
-          src: withBase("screenshots/product-1/fc_p1_3.png"),
-          alt: "Eelvisiit visibility view",
-        },
-      },
-    ],
-    mainPreview: {
-      src: withBase("screenshots/product-1/main_preview_product_1.png"),
-      alt: "Eelvisiit main preview",
-    },
-    screenshots: [
-      {
-        title: "Sümptomite valik",
-        description:
-          "Veebipõhine visiidieelne teenus, mis võimaldab patsientidel valida oma sümptomid ja saada suuniseid enne arsti poole pöördumist.",
-        src: withBase("screenshots/product-1/g_p1_1.png"),
-        alt: "Eelvisiidi screenshot",
-      },
-      {
-        title: "Sümptomküsimustikud",
-        description:
-          "Reaalajas riskiskoor (roheline–punane), mis põhineb patsiendi vastustel ja aitab suunata neid õigesse teenusesse.",
-        src: withBase("screenshots/product-1/g_p1_2.png"),
-        alt: "Product One task flow screenshot",
-      },
-      {
-        title: "Töölaud",
-        description:
-          "Integreerub PK infosüsteemidega (HL7/FHIR)",
-        src: withBase("screenshots/product-1/g_p1_3.png"),
-        alt: "Product One insights panel screenshot",
-      },
-    ],
-  },
-  {
-    id: "02",
-    name: "EelPohak",
-    category: "Analytics platform",
-    tagline: "Turn scattered data into confident decisions.",
-    description:
-      "A modern SaaS solution designed to surface the signals that matter most, so teams can prioritize, act, and improve continuously.",
-    points: [
-      "Live operational overview",
-      "Key functionality modules highlighted clearly",
-      "Simple reporting built for busy teams",
-    ],
-    featureCards: [
-      {
-        label: "Analytics",
-        text: "Use a tight visual frame to explain the value of your reporting features.",
-        screenshot: {
-          src: withBase("screenshots/product-2/fc_p2_1.png"),
-          alt: "EelPohak analytics feature",
-        },
-      },
-      {
-        label: "Prioritization",
-        text: "Show how teams identify what matters most without extra complexity.",
-        screenshot: {
-          src: withBase("screenshots/product-2/fc_p2_2.png"),
-          alt: "EelPohak prioritization feature",
-        },
-      },
-      {
-        label: "Decision support",
-        text: "Feature a crisp product element that reinforces clarity and confidence.",
-        screenshot: {
-          src: withBase("screenshots/product-2/fc_p2_3.png"),
-          alt: "EelPohak decision support feature",
-        },
-      },
-    ],
-    mainPreview: {
-      src: withBase("screenshots/product-2/main_preview_product_2.png"),
-      alt: "EelPohak main preview",
-    },
-    screenshots: [
-      {
-        title: "Live overview",
-        description:
-          "Present a high-level command center view for daily monitoring, trends, and quick decisions.",
-        src: withBase("screenshots/product-2/g_p2_1.png"),
-        alt: "Product Two live overview screenshot",
-      },
-      {
-        title: "Detailed module",
-        description:
-          "Open a focused screenshot that explains one important product function in context.",
-        src: withBase("screenshots/product-2/g_p2_2.png"),
-        alt: "Product Two detailed module screenshot",
-      },
-      {
-        title: "Reporting view",
-        description:
-          "Show how results, summaries, or trends are made easy to understand for busy teams.",
-        src: withBase("screenshots/product-2/g_p2_3.png"),
-        alt: "Product Two reporting view screenshot",
-      },
-    ],
-  },
-  {
-    id: "03",
-    name: "Patsienditeekond",
-    category: "Service experience",
-    tagline: "Deliver better experiences at every touchpoint.",
-    description:
-      "A compact but powerful platform that helps organizations streamline service delivery while keeping the user experience intuitive and human.",
-    points: [
-      "Guided user journeys",
-      "Highlighted product features by function",
-      "Built to scale without adding complexity",
-    ],
-    featureCards: [
-      {
-        label: "Experience",
-        text: "Show one UI block that captures the simplicity of the product experience.",
-        screenshot: {
-          src: withBase("screenshots/product-3/fc_p3_1.png"),
-          alt: "Patsienditeekond experience feature",
-        },
-      },
-      {
-        label: "Guidance",
-        text: "Highlight a specific element that helps users move forward with confidence.",
-        screenshot: {
-          src: withBase("screenshots/product-3/fc_p3_2.png"),
-          alt: "Patsienditeekond guidance feature",
-        },
-      },
-      {
-        label: "Scale",
-        text: "Demonstrate how the product stays structured and clean as usage grows.",
-        screenshot: {
-          src: withBase("screenshots/product-3/fc_p3_3.png"),
-          alt: "Patsienditeekond scale feature",
-        },
-      },
-    ],
-    mainPreview: {
-      src: withBase("screenshots/product-3/main_preview_product_3.png"),
-      alt: "Patsienditeekond main preview",
-    },
-    screenshots: [
-      {
-        title: "User journey",
-        description:
-          "Show the core service path or interaction flow in a calm, elegant way.",
-        src: withBase("screenshots/product-3/g_p3_1.png"),
-        alt: "Product Three user journey screenshot",
-      },
-      {
-        title: "Smart interaction",
-        description:
-          "Use this slot to explain an experience-enhancing product function with a more detailed screen.",
-        src: withBase("screenshots/product-3/g_p3_2.png"),
-        alt: "Product Three smart interaction screenshot",
-      },
-      {
-        title: "Management view",
-        description:
-          "Present the operational side of the platform with a clear supporting visual.",
-        src: withBase("screenshots/product-3/g_p3_3.png"),
-        alt: "Product Three management view screenshot",
-      },
-    ],
-  },
-] as const;
-
-
-
 const contactEmail = "info@idona.ee";
+const languagePathByCode: Record<Language, string> = {
+  et: "ee",
+  en: "en",
+};
+const languageByPathSegment: Record<string, Language> = {
+  ee: "et",
+  et: "et",
+  en: "en",
+};
 
-const COMPANY_INTRO = {
-  title:
-    "Idona  on kaasaegne esmatasandi tervishoiu teenusepakkuja, mis ühendab perearstiabi, digitaalsed lahendused ja andmepõhise juhtimise ühtseks tervikuks.",
-  items: [
-    {
-      text: "Meie eesmärk on pakkuda kvaliteetset, kättesaadavat ja jätkusuutlikku arstiabi, toetades samal ajal tervishoiutöötajate tööd ning parandades patsientide kogemust. Selle saavutamiseks arendame ja rakendame lahendusi, mis suunavad patsiendid õigel ajal õigesse teenusesse, optimeerivad töövooge ning võimaldavad järjepidevat kvaliteedi mõõtmist ja parendamist.",
-      icon: "Heart",
-    },
-    {
-      text: "Oleme partneriks Sotsiaalministeeriumile, Tervisekassale, Terviseametile ja erialaorganisatsioonidele, et leida ja katsetada lahendusi, mis toimivad üle Eesti. Meie roll on olla julge testija ning töötada koostöös partneritega välja mudelid, mis on rakendatavad kogu tervishoiusüsteemis.",
-      icon: "Users",
-    },
-    {
-      text: "Terviseagentuur tegutseb ühtse organisatsioonina, sõltumata keskuse asukohast ja suurusest, kus kliiniline töö, digitaalsed tööriistad ja juhtimissüsteemid on omavahel integreeritud. See loob eeldused tõhusaks meeskonnatööks, paremateks ravitulemusteks ning teenuse skaleeritavuseks erinevates piirkondades. Samuti võimaldab see kiiret reageerimist piirkondlikele vajadustele ja tervishoiukriisidele.",
-      icon: "Layers",
-    },
-    {
-      text: "Meil on võimekus lahendusi kiiresti juurutada ja katsetada kaheksas keskuses üle Eesti, hõlmates ligikaudu 25 000 patsienti. See annab meile reaalsel kasutusel põhineva teadmise, millele tuginedes teha sisulisi ja mõjusaid ettepanekuid kogu tervishoiusüsteemi arendamiseks.",
-      icon: "Globe",
-    },
-  ],
-} as const;
+function getLanguageFromPathname(pathname: string): Language | null {
+  const segments = pathname.split("/").filter(Boolean);
+  const lastSegment = segments.at(-1)?.toLowerCase();
+
+  if (!lastSegment) {
+    return null;
+  }
+
+  return languageByPathSegment[lastSegment] ?? null;
+}
+
+function getPathnameForLanguage(pathname: string, language: Language): string {
+  const segments = pathname.split("/").filter(Boolean);
+  const lastSegment = segments.at(-1)?.toLowerCase();
+
+  if (lastSegment && lastSegment in languageByPathSegment) {
+    segments.pop();
+  }
+
+  segments.push(languagePathByCode[language]);
+
+  return `/${segments.join("/")}`;
+}
+
+function getLanguageFromLocation(): Language {
+  if (typeof window === "undefined") {
+    return "et";
+  }
+
+  return getLanguageFromPathname(window.location.pathname) ?? "et";
+}
 
 /**
  * TYPOGRAPHY SETUP
@@ -280,35 +100,6 @@ const typography = {
       'var(--font-body, "Inter", "Helvetica Neue", Arial, sans-serif)',
   },
 } as const;
-
-type ScreenshotItem = {
-  title: string;
-  description: string;
-  src?: string;
-  alt?: string;
-};
-
-type ScreenshotPreviewItem = {
-  src?: string;
-  alt?: string;
-  title?: string;
-};
-
-type ProductItem = {
-  id: string;
-  name: string;
-  category: string;
-  tagline: string;
-  description: string;
-  points: string[];
-  mainPreview?: ScreenshotPreviewItem;
-  featureCards: {
-    label: string;
-    text: string;
-    screenshot: ScreenshotPreviewItem;
-  }[];
-  screenshots: ScreenshotItem[];
-};
 
 function ScreenshotFrame({
   item,
@@ -352,41 +143,62 @@ function ScreenshotFrame({
 }
 
 export default function SaaSOnePager() {
-  const products = useMemo<ProductItem[]>(() => [...PRODUCTS_CONTENT], []);
-  const [activeGallery, setActiveGallery] = useState<ProductItem | null>(null);
+  const [language, setLanguage] = useState<Language>(getLanguageFromLocation);
+  const siteTranslations = useMemo(() => buildSiteTranslations(withBase), []);
+  const content = siteTranslations[language];
+  const products = content.products;
+  const [activeGalleryId, setActiveGalleryId] = useState<string | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const activeGallery =
+    activeGalleryId === null
+      ? null
+      : products.find((product) => product.id === activeGalleryId) ?? null;
+  const languageOptions: Language[] = ["et", "en"];
 
-  const openGallery = (product: ProductItem, index = 0) => {
-    setActiveGallery(product);
+  const openGallery = (productId: string, index = 0) => {
+    setActiveGalleryId(productId);
     setActiveIndex(index);
   };
 
+  const selectLanguage = (nextLanguage: Language) => {
+    setLanguage(nextLanguage);
+
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    const nextPathname = getPathnameForLanguage(
+      window.location.pathname,
+      nextLanguage,
+    );
+    const nextUrl = `${nextPathname}${window.location.search}${window.location.hash}`;
+    const currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+
+    if (nextUrl !== currentUrl) {
+      window.history.pushState(window.history.state, "", nextUrl);
+    }
+  };
+
   const closeGallery = () => {
-    setActiveGallery(null);
+    setActiveGalleryId(null);
     setActiveIndex(0);
-  };
-
-  const goPrev = () => {
-    if (!activeGallery) return;
-    setActiveIndex((prev) =>
-      prev === 0 ? activeGallery.screenshots.length - 1 : prev - 1,
-    );
-  };
-
-  const goNext = () => {
-    if (!activeGallery) return;
-    setActiveIndex((prev) =>
-      prev === activeGallery.screenshots.length - 1 ? 0 : prev + 1,
-    );
   };
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (!activeGallery) return;
       if (event.key === "Escape") closeGallery();
-      if (event.key === "ArrowLeft") goPrev();
-      if (event.key === "ArrowRight") goNext();
+      if (event.key === "ArrowLeft") {
+        setActiveIndex((prev) =>
+          prev === 0 ? activeGallery.screenshots.length - 1 : prev - 1,
+        );
+      }
+      if (event.key === "ArrowRight") {
+        setActiveIndex((prev) =>
+          prev === activeGallery.screenshots.length - 1 ? 0 : prev + 1,
+        );
+      }
     };
 
     window.addEventListener("keydown", onKeyDown);
@@ -399,6 +211,19 @@ export default function SaaSOnePager() {
       document.body.style.overflow = "";
     };
   }, [activeGallery, mobileMenuOpen]);
+
+  useEffect(() => {
+    const onPopState = () => {
+      setLanguage(getLanguageFromLocation());
+    };
+
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
 
   return (
     <main className="min-h-screen bg-white text-[#17322d]" style={typography.body}>
@@ -414,35 +239,57 @@ export default function SaaSOnePager() {
               className="hidden items-center gap-8 text-[14px] tracking-[-0.02em] text-[#26423d] lg:flex"
               style={typography.body}
             >
-              <a href="#product-1" className="transition hover:opacity-65">
-                EelVisiit
-              </a>
-              <a href="#product-2" className="transition hover:opacity-65">
-                EelPohak
-              </a>
-              <a href="#product-3" className="transition hover:opacity-65">
-                Patsienditeekond
-              </a>
+              {products.map((product, index) => (
+                <a
+                  key={product.id}
+                  href={`#product-${index + 1}`}
+                  className="transition hover:opacity-65"
+                >
+                  {product.name}
+                </a>
+              ))}
               <a href="#meist" className="transition hover:opacity-65">
-                Meist
+                {content.aboutLabel}
               </a>
             </nav>
 
             <div className="flex items-center gap-3">
+              <div
+                className="hidden items-center overflow-hidden border border-[rgba(23,50,45,0.12)] bg-white sm:inline-flex"
+                aria-label={content.languageSelectorLabel}
+                role="group"
+              >
+                {languageOptions.map((option) => (
+                  <button
+                    key={option}
+                    type="button"
+                    onClick={() => selectLanguage(option)}
+                    aria-pressed={language === option}
+                    className={`px-3 py-2 text-[12px] font-medium tracking-[0.08em] transition ${
+                      language === option
+                        ? "bg-[#17322d] text-white"
+                        : "text-[#26423d] hover:bg-[#f4f8f8]"
+                    }`}
+                  >
+                    {siteTranslations[option].shortLabel}
+                  </button>
+                ))}
+              </div>
               <a
                 href={`mailto:${contactEmail}`}
                 className="hidden bg-[#17322d] px-5 py-3 text-[14px] font-medium tracking-[-0.02em] text-white transition hover:bg-[#0f2521] sm:inline-flex lg:px-6"
                 style={typography.body}
               >
-                Võta ühendust
+                {content.contactLabel}
               </a>
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(true)}
                 className="inline-flex items-center gap-2 text-[14px] text-[#26423d] lg:hidden"
+                aria-label={content.openMenuLabel}
               >
                 <Menu className="h-5 w-5" />
-                Menu
+                {content.menuLabel}
               </button>
             </div>
           </div>
@@ -461,7 +308,7 @@ export default function SaaSOnePager() {
                 className="inline-flex bg-[#c2dce3] px-3 py-1 text-[11px] font-medium uppercase tracking-[0.1em] text-[#17322d]"
                 style={typography.body}
               >
-                Idona lahendused
+                {content.hero.eyebrow}
               </div>
               <h1
                 className="
@@ -474,9 +321,11 @@ export default function SaaSOnePager() {
                 "
                 style={typography.display}
               >
-                <span className="block whitespace-nowrap">Loome lahendusi</span>
-                <span className="block whitespace-nowrap">meedikutele,</span>
-                <span className="block whitespace-nowrap">patsientide heaks</span>
+                {content.hero.titleLines.map((line) => (
+                  <span key={line} className="block whitespace-nowrap">
+                    {line}
+                  </span>
+                ))}
               </h1>
 
               <div className="mt-8 sm:mt-10">
@@ -484,7 +333,7 @@ export default function SaaSOnePager() {
                   className="max-w-[560px] text-[18px] leading-[1.24] tracking-[-0.035em] text-[#26423d] sm:text-[21px]"
                   style={typography.display}
                 >
-                  Aitame vähendada töökoormust, parandada patsiendiohutust ja tuua fookuse sinna, kus see loeb, parematele otsustele ja ravitulemustele.
+                  {content.hero.description}
                 </p>
               </div>
             </div>
@@ -546,7 +395,7 @@ export default function SaaSOnePager() {
                 <div className="space-y-4 sm:space-y-5">
                   <button
                     type="button"
-                    onClick={() => openGallery(product, 0)}
+                    onClick={() => openGallery(product.id, 0)}
                     className="group block w-full text-left"
                   >
                     <div className="overflow-hidden border border-[rgba(23,50,45,0.10)] bg-white shadow-[0_14px_40px_rgba(23,50,45,0.07)] transition duration-300 hover:-translate-y-1">
@@ -566,7 +415,7 @@ export default function SaaSOnePager() {
                       <button
                         key={card.label}
                         type="button"
-                        onClick={() => openGallery(product, index)}
+                        onClick={() => openGallery(product.id, index)}
                         className="group border border-[rgba(23,50,45,0.10)] bg-white p-4 text-left transition hover:border-[rgba(23,50,45,0.18)] hover:shadow-[0_8px_24px_rgba(23,50,45,0.05)]"
                       >
                         <div className="text-[11px] uppercase tracking-[0.16em] text-[#53706a]">
@@ -605,13 +454,13 @@ export default function SaaSOnePager() {
               className="mx-auto max-w-[1080px] pt-3 pb-3 text-center text-[clamp(1.45rem,3.3vw,2.7rem)] font-normal leading-[1.05] tracking-[-0.045em] text-[#17322d] sm:pt-4 sm:pb-4 lg:pt-5 lg:pb-5"
               style={typography.display}
             >
-              {COMPANY_INTRO.title}
+              {content.companyIntro.title}
             </h2>
 
             <div className="mt-7 space-y-5 sm:mt-9 sm:space-y-6">
-            {COMPANY_INTRO.items.map((item, index) => {
+            {content.companyIntro.items.map((item, index) => {
               const imageFirst = index % 2 === 1;
-              const iconMap: Record<string, React.ReactNode> = {
+              const iconMap: Record<IconName, React.ReactNode> = {
                 Heart: <Heart className="h-12 w-12 text-[#4a8a7f]" />,
                 Users: <Users className="h-12 w-12 text-[#4a8a7f]" />,
                 Layers: <Layers className="h-12 w-12 text-[#4a8a7f]" />,
@@ -632,7 +481,7 @@ export default function SaaSOnePager() {
                   <div className={imageFirst ? "order-first lg:order-1" : "order-first lg:order-none"}>
                     <div className="flex items-center justify-center">
                       <div className="inline-flex items-center justify-center h-20 w-20 rounded-lg bg-[linear-gradient(135deg,rgba(79,136,154,0.08)_0%,rgba(114,185,186,0.10)_38%,rgba(102,173,228,0.09)_72%,rgba(235,209,152,0.14)_100%)] border border-[rgba(23,50,45,0.12)]">
-                        {iconMap[item.icon as keyof typeof iconMap]}
+                        {iconMap[item.icon]}
                       </div>
                     </div>
                   </div>
@@ -657,55 +506,64 @@ export default function SaaSOnePager() {
                 className="text-[14px] font-medium uppercase tracking-[0.12em] text-[#17322d]"
                 style={typography.body}
               >
-                Menu
+                {content.menuLabel}
               </div>
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(false)}
                 className="inline-flex h-10 w-10 items-center justify-center border border-[rgba(23,50,45,0.10)]"
+                aria-label={content.closeMenuLabel}
               >
                 <X className="h-5 w-5 text-[#17322d]" />
               </button>
             </div>
             <div className="flex flex-col px-4 py-6 sm:px-6">
-              <a
-                href="#product-1"
-                onClick={() => setMobileMenuOpen(false)}
-                className="border-b border-[rgba(23,50,45,0.08)] py-4 text-[28px] tracking-[-0.065em] text-[#17322d]"
-                style={typography.display}
-              >
-                Eelvisiit
-              </a>
-              <a
-                href="#product-2"
-                onClick={() => setMobileMenuOpen(false)}
-                className="border-b border-[rgba(23,50,45,0.08)] py-4 text-[28px] tracking-[-0.065em] text-[#17322d]"
-                style={typography.display}
-              >
-                EelPohak
-              </a>
-              <a
-                href="#product-3"
-                onClick={() => setMobileMenuOpen(false)}
-                className="border-b border-[rgba(23,50,45,0.08)] py-4 text-[28px] tracking-[-0.065em] text-[#17322d]"
-                style={typography.display}
-              >
-                Patsienditeekond
-              </a>
+              {products.map((product, index) => (
+                <a
+                  key={product.id}
+                  href={`#product-${index + 1}`}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="border-b border-[rgba(23,50,45,0.08)] py-4 text-[28px] tracking-[-0.065em] text-[#17322d]"
+                  style={typography.display}
+                >
+                  {product.name}
+                </a>
+              ))}
               <a
                 href="#meist"
                 onClick={() => setMobileMenuOpen(false)}
                 className="border-b border-[rgba(23,50,45,0.08)] py-4 text-[28px] tracking-[-0.065em] text-[#17322d]"
                 style={typography.display}
               >
-                Meist
+                {content.aboutLabel}
               </a>
+              <div
+                className="mt-6 inline-flex w-fit items-center overflow-hidden border border-[rgba(23,50,45,0.12)] bg-white"
+                aria-label={content.languageSelectorLabel}
+                role="group"
+              >
+                {languageOptions.map((option) => (
+                  <button
+                    key={option}
+                    type="button"
+                    onClick={() => selectLanguage(option)}
+                    aria-pressed={language === option}
+                    className={`px-4 py-2 text-[12px] font-medium tracking-[0.08em] transition ${
+                      language === option
+                        ? "bg-[#17322d] text-white"
+                        : "text-[#26423d] hover:bg-[#f4f8f8]"
+                    }`}
+                  >
+                    {siteTranslations[option].shortLabel}
+                  </button>
+                ))}
+              </div>
               <a
                 href={`mailto:${contactEmail}`}
                 className="mt-6 inline-flex w-fit bg-[#17322d] px-5 py-3 text-[14px] font-medium tracking-[-0.02em] text-white"
                 style={typography.body}
               >
-                Võta ühendust
+                {content.contactLabel}
               </a>
             </div>
           </motion.div>
@@ -745,6 +603,7 @@ export default function SaaSOnePager() {
                       type="button"
                       onClick={closeGallery}
                       className="inline-flex h-11 w-11 shrink-0 items-center justify-center border border-[rgba(23,50,45,0.10)] bg-white transition hover:bg-[#f7fbfb]"
+                      aria-label={content.closeGalleryLabel}
                     >
                       <X className="h-5 w-5 text-[#17322d]" />
                     </button>
