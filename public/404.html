@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+    <script>
+      // GitHub Pages SPA Single Page Application routing fix.
+      // When accessing a path like /en or /ee on a GitHub Pages site,
+      // GitHub Pages will return a 404 because these are not real files.
+      // This script stores the path and redirects to index.html,
+      // then the app reads the stored path and handles the routing.
+      
+      sessionStorage.redirect = window.location.pathname + window.location.search + window.location.hash;
+    </script>
+    <meta http-equiv="refresh" content="0;URL='/index.html'" />
+  </head>
+  <body />
+</html>

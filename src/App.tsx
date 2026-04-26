@@ -71,7 +71,14 @@ function getLanguageFromLocation(): Language {
     return "et";
   }
 
-  return getLanguageFromPathname(window.location.pathname) ?? "et";
+  // Check if this is a redirect from 404.html (GitHub Pages SPA routing fix)
+  let pathname = window.location.pathname;
+  if (typeof sessionStorage !== "undefined" && sessionStorage.redirect) {
+    pathname = sessionStorage.redirect.split("?")[0].split("#")[0];
+    delete sessionStorage.redirect;
+  }
+
+  return getLanguageFromPathname(pathname) ?? "et";
 }
 
 /**
@@ -220,6 +227,24 @@ export default function SaaSOnePager() {
     window.addEventListener("popstate", onPopState);
     return () => window.removeEventListener("popstate", onPopState);
   }, []);
+
+  useEffect(() => {
+    // After 404.html redirect, the URL shows /index.html but we want it to show /en or /ee
+    // This effect normalizes the URL on first load
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    const currentPathname = window.location.pathname;
+    const expectedPathname = getPathnameForLanguage(currentPathname, language);
+
+    if (
+      currentPathname.endsWith("/index.html") &&
+      expectedPathname !== currentPathname
+    ) {
+      window.history.replaceState(window.history.state, "", expectedPathname);
+    }
+  }, [language]);
 
   useEffect(() => {
     document.documentElement.lang = language;
