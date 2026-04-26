@@ -240,38 +240,38 @@ export function buildSiteTranslations(
         {
           id: "02",
           name: "EelPohak",
-          category: "Analüütikaplatvorm",
+          category: "Patsiendiohutusjuhtumite haldus",
           tagline: "Muudab hajusa andmestiku kindlateks otsusteks.",
           description:
-            "Kaasaegne SaaS-lahendus, mis toob esile kõige olulisemad signaalid, et meeskonnad saaksid seada prioriteete, tegutseda ja pidevalt parendada.",
+            "EelPohak koondab patsiendiohutusjuhtumite raporteerimise, analüüsi, riskihindamise ja järeltegevused ühte selgesse töövoogu. Lahendus aitab perearstikeskusel hoida ülevaadet, määrata vastutust ja dokumenteerida tehtud otsused.",
           points: [
-            "Reaalajas ülevaade toimimisest",
-            "Olulised funktsionaalsusmoodulid selgelt esile toodud",
-            "Lihtne aruandlus kiire tempoga meeskondadele",
+            "Kõik juhtumid ja järeltegevused ühes kohas",
+            "Selge vastutus, staatus ja ajalugu igal sammul",
+            "Auditiks ja võimalikeks kindlustusjuhtumiteks valmis dokumentatsioon",
           ],
           featureCards: [
             {
-              label: "Analüütika",
-              text: "Näita selges visuaalses raamistikus, kuidas aruandlus toetab paremaid otsuseid.",
+              label: "Juhtumite haldus",
+              text: "Kõik patsiendiohutusjuhtumid liiguvad läbi selge menetlusprotsessi alates raporteerimisest kuni lõpetamiseni.",
               screenshot: {
                 src: withBase(productAssets.product2.featureCards[0]),
-                alt: "EelPohaku analüütika funktsioon",
+                alt: "EelPohaku juhtumite halduse funktsioon",
               },
             },
             {
-              label: "Prioriseerimine",
-              text: "Too esile, kuidas meeskonnad leiavad kõige olulisema ilma liigse keerukuseta.",
+              label: "Analüüs ja riskihinnang",
+              text: "Juhtumi põhjused, mõju ja kordumise risk hinnatakse süsteemselt, et otsustada, mis vajab kiiret sekkumist.",
               screenshot: {
                 src: withBase(productAssets.product2.featureCards[1]),
-                alt: "EelPohaku prioriseerimise funktsioon",
+                alt: "EelPohaku analüüsi ja riskihinnangu funktsioon",
               },
             },
             {
-              label: "Otsustustugi",
-              text: "Esitle selget tootekomponenti, mis tugevdab selgust ja kindlustunnet.",
+              label: "Tegevusplaan",
+              text: "Järeltegevused seotakse vastutajate, tähtaegade ja staatustega, et parendused ei jääks tegemata.",
               screenshot: {
                 src: withBase(productAssets.product2.featureCards[2]),
-                alt: "EelPohaku otsustustoe funktsioon",
+                alt: "EelPohaku tegevusplaani funktsioon",
               },
             },
           ],
@@ -281,25 +281,25 @@ export function buildSiteTranslations(
           },
           screenshots: [
             {
-              title: "Reaalajas ülevaade",
+              title: "Koondvaade juhtumitest",
               description:
-                "Kõrgtaseme juhtvaade igapäevaseks monitoorimiseks, trendide jälgimiseks ja kiireteks otsusteks.",
+                "Juht näeb ühes vaates avatud juhtumeid, prioriteete, vastutajaid ja menetluse staatust.",
               src: withBase(productAssets.product2.gallery[0]),
-              alt: "EelPohaku reaalajas ülevaate ekraanikuva",
+              alt: "EelPohaku juhtumite koondvaate ekraanikuva",
             },
             {
-              title: "Detailne moodul",
+              title: "Juhtumi menetlus",
               description:
-                "Fookustatud ekraan, mis selgitab ühe olulise funktsiooni väärtust kontekstis.",
+                "Iga juhtumi juures on nähtav kirjeldus, analüüs, riskihinnang, otsused ja kogu menetluse ajalugu.",
               src: withBase(productAssets.product2.gallery[1]),
-              alt: "EelPohaku detailse mooduli ekraanikuva",
+              alt: "EelPohaku juhtumi menetluse ekraanikuva",
             },
             {
-              title: "Aruandluse vaade",
+              title: "Järeltegevused ja auditivalmidus",
               description:
-                "Tulemused, kokkuvõtted ja trendid on kiire tempoga meeskondade jaoks lihtsalt mõistetavad.",
+                "Tegevusplaanid, vastutajad ja tähtajad on dokumenteeritud, et keskus oleks valmis auditiks, kaebuseks või kindlustusjuhtumiks.",
               src: withBase(productAssets.product2.gallery[2]),
-              alt: "EelPohaku aruandluse ekraanikuva",
+              alt: "EelPohaku järeltegevuste ja auditivalmiduse ekraanikuva",
             },
           ],
         },
@@ -493,38 +493,38 @@ export function buildSiteTranslations(
         {
           id: "02",
           name: "EelPohak",
-          category: "Analytics platform",
-          tagline: "Turn scattered data into confident decisions.",
+          category: "Patient safety incident management",
+          tagline: "Turn scattered incidents into clear, documented action.",
           description:
-            "A modern SaaS solution designed to surface the signals that matter most, so teams can prioritize, act, and improve continuously.",
+            "EelPohak brings patient safety incident reporting, analysis, risk assessment, and follow-up actions into one clear workflow. It helps primary care centers maintain oversight, assign responsibility, and document every decision made.",
           points: [
-            "Live operational overview",
-            "Key functionality modules highlighted clearly",
-            "Simple reporting built for busy teams",
+            "All incidents and follow-up actions in one place",
+            "Clear ownership, status, and history at every step",
+            "Documentation ready for audits and potential insurance claims",
           ],
           featureCards: [
             {
-              label: "Analytics",
-              text: "Use a tight visual frame to explain the value of your reporting features.",
+              label: "Incident management",
+              text: "Every patient safety incident moves through a clear handling process from initial report to resolution.",
               screenshot: {
                 src: withBase(productAssets.product2.featureCards[0]),
-                alt: "EelPohak analytics feature",
+                alt: "EelPohak incident management feature",
               },
             },
             {
-              label: "Prioritization",
-              text: "Show how teams identify what matters most without extra complexity.",
+              label: "Analysis and risk assessment",
+              text: "Incident causes, impact, and recurrence risk are assessed systematically to determine what needs urgent action.",
               screenshot: {
                 src: withBase(productAssets.product2.featureCards[1]),
-                alt: "EelPohak prioritization feature",
+                alt: "EelPohak analysis and risk assessment feature",
               },
             },
             {
-              label: "Decision support",
-              text: "Feature a crisp product element that reinforces clarity and confidence.",
+              label: "Action plan",
+              text: "Follow-up actions are linked to owners, deadlines, and statuses so that improvements actually get completed.",
               screenshot: {
                 src: withBase(productAssets.product2.featureCards[2]),
-                alt: "EelPohak decision support feature",
+                alt: "EelPohak action plan feature",
               },
             },
           ],
@@ -534,25 +534,25 @@ export function buildSiteTranslations(
           },
           screenshots: [
             {
-              title: "Live overview",
+              title: "Incident overview",
               description:
-                "Present a high-level command center view for daily monitoring, trends, and quick decisions.",
+                "Leadership sees open incidents, priorities, owners, and handling status in a single view.",
               src: withBase(productAssets.product2.gallery[0]),
-              alt: "EelPohak live overview screenshot",
+              alt: "EelPohak incident overview screenshot",
             },
             {
-              title: "Detailed module",
+              title: "Incident handling",
               description:
-                "Open a focused screenshot that explains one important product function in context.",
+                "Each incident shows its description, analysis, risk assessment, decisions, and the full handling history.",
               src: withBase(productAssets.product2.gallery[1]),
-              alt: "EelPohak detailed module screenshot",
+              alt: "EelPohak incident handling screenshot",
             },
             {
-              title: "Reporting view",
+              title: "Follow-up actions and audit readiness",
               description:
-                "Show how results, summaries, or trends are made easy to understand for busy teams.",
+                "Action plans, owners, and deadlines are documented so the center is prepared for an audit, complaint, or insurance claim.",
               src: withBase(productAssets.product2.gallery[2]),
-              alt: "EelPohak reporting view screenshot",
+              alt: "EelPohak follow-up actions screenshot",
             },
           ],
         },
